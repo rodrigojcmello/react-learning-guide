@@ -1,13 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, browserHistory } from 'react-router';
+import { Router, browserHistory } from 'react-router';
 
-import Hello from './components/hello.jsx';
-import Teste from './components/teste.jsx';
+import routes from './routes.jsx';
 
-ReactDOM.render((
-    <Router history={browserHistory}>
-        <Route path="/" component={Hello}/>
-        <Route path="/teste" component={Teste}/>
-    </Router>
-), document.getElementById('app'));
+ReactDOM.render(
+    <Router routes={routes} history={browserHistory}/>,
+    document.getElementById('app')
+);
