@@ -9,7 +9,7 @@ O objetivo deste exemplo é ser o mais simples possível, por isso iremos mostra
 
 ## Webpack Dev Server
 
-O Webpack-dev-servidor é um pequeno servidor node Express, que usa o Webpack-dev-middleware para servir um pacote Webpack. Ele também tem um pequeno tempo de execução que é conectado ao servidor através de Socket.IO. O servidor emite informações sobre o estado de compilação para o cliente, que reage a esses eventos.
+O Webpack-dev-servidor é um pequeno servidor Express, que usa o Webpack-dev-middleware como servidor do pacote do Webpack. Ele também tem um pequeno tempo de execução que é conectado ao servidor através de Socket.IO. O servidor emite informações sobre o estado de compilação para o cliente, que reage a esses eventos.
 
 Instale o pacote webpack-dev-server globalmente:
 
