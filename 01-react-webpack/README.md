@@ -1,5 +1,11 @@
-# React Webpack Example
-## Quickstart
+# React Webpack (webpack-dev-server)
+
+## Webpack Dev Server
+
+Instale o pacote webpack-dev-server globalmente:
+
+`npm i -g webpack-dev-server`
+
 ```
   npm install
   npm install webpack-dev-server -g
