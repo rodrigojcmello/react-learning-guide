@@ -1,4 +1,4 @@
-# React Webpack (webpack-dev-server)
+# React Webpack
 
 ## Webpack Dev Server
 
