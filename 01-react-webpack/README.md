@@ -2,12 +2,35 @@
 
 ## Objetivo
 
-Existem 2 formas de se trabalhar com React e Webpack.
+Exemplificar as configurações mínimas para usar React com Webpack.
 
-1. React e Webpack Dev Server
-2. React, Webpack e Express
+## React
 
-O objetivo deste exemplo é ser o mais simples possível, por isso iremos mostrar inicialmente como se usa React com o Webpack Dev Server.
+Instação do React:
+
+`npm i --save react react-dom`
+
+Criação de um componente simples:
+
+```
+// Mundo.jsx
+import React from 'react';
+
+export default class Mundo extends React.Component {
+    render() { return (
+        <h1>Olá Mundo!</h1>
+    ); }
+}
+```
+
+
+## Webpack
+
+Há 2 formas de se trabalhar Webpack.
+
+1. Webpack Dev Server
+2. Webpack e Express
+
 
 ## Webpack Dev Server
 
