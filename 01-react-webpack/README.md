@@ -23,14 +23,22 @@ export default class Mundo extends React.Component {
 }
 ```
 
+## Babel
+
+Babel ...
+
+`npm i --save-dev babel-core babel-loader babel-preset-es2015 babel-preset-react`
 
 ## Webpack
+
+Webpack ...
+
+`npm i --save-dev webpack`
 
 Há 2 formas de se trabalhar Webpack.
 
 1. Webpack Dev Server
 2. Webpack e Express
-
 
 ## Webpack Dev Server
 
@@ -49,3 +57,9 @@ Instale o pacote webpack-dev-server globalmente:
 ## Observações
 
 Lembrando que estas duas formas são usadas em ambiente de desenvolvimento, sendo necessário ter configurações expecificas para o Express para colocar em produção, e claro, o Webpack Dev Server como o nome já diz, só server para ambiente de desenvolimento.
+
+## Referência
+
+Instale tudo de uma vez:
+
+`npm i --save react react-dom && npm i --save-dev babel-core babel-loader babel-preset-es2015 babel-preset-react webpack`
