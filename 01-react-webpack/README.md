@@ -23,9 +23,11 @@ export default class Mundo extends React.Component {
 }
 ```
 
-## Babel
+## Babeljs
 
-Babel ...
+Babel é um compilador JavaScript que permite transformar ES6 em ES5, e que também da suporte a JSX.
+
+Instalação do Babeljs
 
 `npm i --save-dev babel-core babel-loader babel-preset-es2015 babel-preset-react`
 
