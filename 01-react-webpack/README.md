@@ -29,7 +29,7 @@ export default class Mundo extends React.Component {
 
 ## Babeljs
 
-Babel é um compilador de ES6 e JSX em ES5.
+Babeljs é um compilador de ES6 e JSX em ES5.
 
 Instalação do Babeljs:
 
