@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-*Exemplificar as configurações mínimas para usar React com Webpack.*
+**Exemplificar as configurações mínimas para usar React com Webpack.**
 
 ## Inicialização
 
@@ -37,14 +37,11 @@ Instalação do Babeljs:
 
 ## Webpack
 
-Webpack ...
+*Webpack é um modulador de pacotes.*
+
+Instalação do Webpack:
 
 `npm i --save-dev webpack`
-
-Há 2 formas de se trabalhar Webpack.
-
-1. Webpack Dev Server
-2. Webpack e Express
 
 ## Webpack Dev Server
 
