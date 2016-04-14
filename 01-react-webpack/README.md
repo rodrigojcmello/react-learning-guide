@@ -31,13 +31,11 @@ export default class Mundo extends React.Component {
 
 ## Babeljs
 
-*Babel é um compilador JavaScript.*
+* Babel é um compilador JavaScript.
+* Babel tem suporte para a mais recente versão do JavaScript através de transformadores de sintaxe.
+* Babel pode converter sintaxe JSX e retirar anotações de tipo.
 
-*Babel tem suporte para a mais recente versão do JavaScript através de transformadores de sintaxe.*
-
-*Babel pode converter sintaxe JSX e retirar anotações de tipo.*
-
-Instalação do compilador de ES6 e JSX:
+Instalação:
 
 `npm i --save-dev babel-core babel-loader babel-preset-es2015 babel-preset-react`
 
