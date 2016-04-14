@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Exemplificar as configurações mínimas para usar React com Webpack.
+*Exemplificar as configurações mínimas para usar React com Webpack.*
 
 ## Inicialização
 
@@ -29,7 +29,7 @@ export default class Mundo extends React.Component {
 
 ## Babeljs
 
-Babeljs é um compilador de ES6 e JSX em ES5.
+_Babeljs é um compilador de ES6 e JSX em ES5._
 
 Instalação do Babeljs:
 
