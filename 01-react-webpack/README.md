@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-**Exemplificar as configurações mínimas para usar React com Webpack.**
+Exemplificar as configurações mínimas para usar React com Webpack.
 
 ## Inicialização
 
