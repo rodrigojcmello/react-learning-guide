@@ -29,7 +29,7 @@ export default class Mundo extends React.Component {
 
 ## Babeljs
 
-_Babeljs é um compilador de ES6 e JSX em ES5._
+*Babeljs é um compilador de ES6 e JSX em ES5.*
 
 Instalação do Babeljs:
 
@@ -42,6 +42,30 @@ Instalação do Babeljs:
 Instalação do Webpack:
 
 `npm i --save-dev webpack`
+
+Configuração do Webpack:
+
+```
+// webpack.config.js
+var webpack = require('webpack');
+
+module.exports = {
+    entry: './index.jsx',
+    output: { path: __dirname, filename: 'bundle.js' },
+    module: {
+        loaders: [
+            {
+                test: /.jsx?$/,
+                loader: 'babel-loader',
+                exclude: /node_modules/,
+                query: {
+                    presets: ['es2015', 'react']
+                }
+            }
+        ]
+    }
+};
+```
 
 ## Webpack Dev Server
 
