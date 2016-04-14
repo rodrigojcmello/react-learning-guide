@@ -10,7 +10,7 @@ Exemplificar as configurações mínimas para usar React com Webpack.
 
 ## React
 
-*Uma biblioteca javascript para construir interfaces de usuário*
+*Uma biblioteca JavaScript para construir interfaces de usuário*
 
 Instalação:
 
