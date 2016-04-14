@@ -10,7 +10,9 @@ Exemplificar as configurações mínimas para usar React com Webpack.
 
 ## React
 
-Instalação da biblioteca de interface:
+*Uma biblioteca javascript para construir interfaces de usuário*
+
+Instalação:
 
 `npm i --save react react-dom`
 
