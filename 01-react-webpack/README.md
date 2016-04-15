@@ -10,7 +10,7 @@ Exemplificar as configurações mínimas para usar React com Webpack.
 
 ## React
 
-*Uma biblioteca JavaScript para construir interfaces de usuário*
+*Biblioteca JavaScript para construir interfaces de usuário*
 
 Instalação:
 
@@ -21,17 +21,20 @@ Criação de componente:
 ```
 // Mundo.jsx
 import React from 'react';
+import ReactDOM from 'react-dom';
 
-export default class Mundo extends React.Component {
+class Mundo extends React.Component {
     render() { return (
         <h1>Olá Mundo!</h1>
     ); }
 }
+
+ReactDOM.render(<Mundo/>, document.getElementById('app'));
 ```
 
 ## Babeljs
 
-*Um compilador JavaScript que suporta sintaxes ES6 e JSX.*
+*Compilador JavaScript que suporta sintaxes ES6 e JSX.*
 
 Instalação:
 
@@ -39,7 +42,9 @@ Instalação:
 
 ## Webpack
 
-Instalação do modulador de pacotes:
+*Modulador de pacotes.*
+
+Instalação:
 
 `npm i --save-dev webpack`
 
