@@ -4,7 +4,7 @@
 
 Exemplificar as configurações mínimas para usar React com Webpack.
 
-## Inicialização
+## NPM
 
 Inicialização do **package.json**:
 
