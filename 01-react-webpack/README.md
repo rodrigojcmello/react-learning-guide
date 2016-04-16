@@ -23,13 +23,13 @@ Criação de componente:
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-class Mundo extends React.Component {
+export default class HelloWorld extends React.Component {
     render() { return (
-        <h1>Olá Mundo!</h1>
+        <h1>Hello World!</h1>
     ); }
 }
 
-ReactDOM.render(<Mundo/>, document.getElementById('app'));
+ReactDOM.render(<HelloWorld/>, document.getElementById('app'));
 ```
 
 ## Babeljs
@@ -55,7 +55,7 @@ Configuração do Webpack:
 var webpack = require('webpack');
 
 module.exports = {
-    entry: './index.jsx',
+    entry: './HelloWorld.jsx',
     output: { path: __dirname, filename: 'bundle.js' },
     module: {
         loaders: [
