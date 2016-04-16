@@ -19,7 +19,7 @@ Instalação:
 Criação de componente:
 
 ```
-// Mundo.jsx
+// HelloWorld.jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
 
