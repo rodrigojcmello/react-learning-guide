@@ -6,7 +6,14 @@ Exemplificar as configurações mínimas para usar React com Webpack.
 
 ## NPM
 
-Inicialização do **package.json**:
+Inicialização do package.json:
+
+Adicione o script "start" no package.json:
+```
+"scripts": {
+    "start": "webpack-dev-server"
+}
+```
 
 `npm init --yes`
 
@@ -45,6 +52,7 @@ Instalação:
 ## HTML
 
 ```
+//index.html
 <!doctype html>
 <html>
 <head>
@@ -97,6 +105,20 @@ module.exports = {
 Instale global:
 
 `npm i -g webpack-dev-server`
+
+## localhost:8080
+
+No terminal:
+
+`webpack-dev-server`
+
+ou
+
+`npm start`
+
+* Acesse localhost:8080 para ver o resultado
+* Acesse localhost:8080/webpack-dev-server para atualização em tempo real.
+
 
 ## Observações
 
