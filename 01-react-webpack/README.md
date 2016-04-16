@@ -120,12 +120,8 @@ ou
 * Acesse localhost:8080/webpack-dev-server para atualização em tempo real.
 
 
-## Observações
-
-Lembrando que estas duas formas são usadas em ambiente de desenvolvimento, sendo necessário ter configurações expecificas para o Express para colocar em produção, e claro, o Webpack Dev Server como o nome já diz, só server para ambiente de desenvolimento.
-
 ## Referência
 
-Instale tudo de uma vez:
+Instalação simplificada:
 
 `npm i --save react react-dom && npm i --save-dev babel-core babel-loader babel-preset-es2015 babel-preset-react webpack`
