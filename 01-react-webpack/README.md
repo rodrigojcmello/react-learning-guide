@@ -42,6 +42,22 @@ Instalação:
 
 `npm i --save-dev babel-core babel-loader babel-preset-es2015 babel-preset-react`
 
+## HTML
+
+```
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>01-react-webpack</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="bundle.js"></script>
+</body>
+</html>
+```
+
 ## Webpack
 
 *Modulador de pacotes.*
@@ -76,17 +92,11 @@ module.exports = {
 
 ## Webpack Dev Server
 
-O Webpack-dev-servidor é um pequeno servidor Express, que usa o Webpack-dev-middleware como servidor do pacote do Webpack. Ele também tem um pequeno tempo de execução que é conectado ao servidor através de Socket.IO. O servidor emite informações sobre o estado de compilação para o cliente, que reage a esses eventos.
+*Pequeno servidor Express integrado ao Webpack.*
 
-Instale o pacote webpack-dev-server globalmente:
+Instale global:
 
 `npm i -g webpack-dev-server`
-
-```
-  npm install
-  npm install webpack-dev-server -g
-  Webpack-dev-server
-```
 
 ## Observações
 
