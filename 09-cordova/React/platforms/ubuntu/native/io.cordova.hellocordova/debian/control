@@ -1,0 +1,17 @@
+Source: io.cordova.hellocordova
+Section: devel
+Priority: optional
+Maintainer: Apache Cordova Team <dev@cordova.apache.org>
+Build-Depends: ubuntu-sdk,
+         qtfeedback5-dev,
+         qtmultimedia5-dev,
+         qtpim5-dev,
+         libqt5sensors5-dev,
+         qtsystems5-dev,
+         qtlocation5-dev,
+         libicu-dev
+
+Package: io.cordova.hellocordova
+Architecture: any
+Description: A sample Apache Cordova application that responds to the deviceready event.
+Depends: ubuntu-sdk-libs

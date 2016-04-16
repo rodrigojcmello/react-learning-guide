@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=HelloCordova
+Exec=/opt/io.cordova.hellocordova/cordova-ubuntu
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true
+Icon=/opt/io.cordova.hellocordova/www/logo.png
