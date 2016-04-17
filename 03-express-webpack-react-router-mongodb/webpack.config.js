@@ -1,18 +1,25 @@
 var webpack = require('webpack');
 var htmlWebpackPlugin = require('html-webpack-plugin');
 
+var path = require('path');
+
 module.exports = {
-    entry: [
-        'webpack-hot-middleware/client?reload=true',
-        __dirname + '/client.js'
-    ],
-    output: { path: __dirname + '/dist', filename: 'bundle.js' },
+    entry: path.join(__dirname, 'client.js'),
+    target: 'node',
+    output: {
+        path: path.resolve(__dirname, '/dist'),
+        filename: 'bundle.js',
+        publicPath: '/'
+    },
     plugins: [
-        new htmlWebpackPlugin({ template: 'index.html' }),
-        new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin()
+        new htmlWebpackPlugin({ template: 'index.html' })
     ],
+    node: {
+        fs: "empty"
+    },
+    resolve: {
+        extensions: ["", ".webpack.js", ".web.js", ".js", ".node"]
+    },
     module: {
         loaders: [
             {

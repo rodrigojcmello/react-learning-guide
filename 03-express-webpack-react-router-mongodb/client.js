@@ -1,15 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { Router, browserHistory } from 'react-router';
+import { render } from 'react-dom';
 
-import routes from './routes.js';
+// import mongoose from 'mongoose';
+// mongoose.connect('mongodb://localhost/teste_db');
+// import comentario from './server/model/comentario.js';
 
-var data = [
-    {id: 1, author: "Pete Hunt", text: "This is one comment"},
-    {id: 2, author: "Jordan Walke", text: "This is *another* comment"}
-];
+import ComentarioCaixa from './components/ComentarioCaixa.js';
 
-ReactDOM.render(
-    <Router routes={routes} history={browserHistory}/>,
-    document.getElementById('app')
-);
+render(<ComentarioCaixa/>, document.getElementById('app'));

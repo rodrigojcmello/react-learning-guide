@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
-import commentBox from './components/CommentBox.js';
+import ComentarioCaixa from './components/ComentarioCaixa.js';
 
 module.exports = (
-    <Route path="/" component={commentBox}>
+    <Route path="/" component={ComentarioCaixa} data={this.props}>
     </Route>
 );
