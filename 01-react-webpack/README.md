@@ -120,8 +120,8 @@ ou
 
 `npm start`
 
-* Acesse localhost:8080 para ver o resultado
-* Acesse localhost:8080/webpack-dev-server para atualização em tempo real.
+* Acesse localhost:8080 para ver o resultado.
+* Acesse localhost:8080/webpack-dev-server para ver o resultado com atualização em tempo real.
 
 
 ## Referência
