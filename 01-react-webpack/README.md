@@ -51,11 +51,12 @@ Instalação:
 `npm i --save-dev babel-core babel-loader babel-preset-es2015 babel-preset-react`
 
 
-//.babelrc
 
 Configuração do Babeljs:
-
-`{ "presets": ["es2015", "react"] }`
+```
+//.babelrc
+{ "presets": ["es2015", "react"] }
+```
 
 ## HTML
 
