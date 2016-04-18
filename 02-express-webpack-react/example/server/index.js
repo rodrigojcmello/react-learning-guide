@@ -2,7 +2,7 @@ import express from 'express';
 const app = express();
 
 import webpack from 'webpack';
-import webpackConfig from './webpack.config.js';
+import webpackConfig from '../webpack.config.js';
 import webpackMiddleware from 'webpack-dev-middleware';
 const compiler = webpack(webpackConfig);
 
