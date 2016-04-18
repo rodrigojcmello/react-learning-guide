@@ -30,16 +30,16 @@ Criação de componente:
 
 ```
 // HelloWorld.jsx
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { Component } from 'react';
+import { render } from 'react-dom';
 
-export default class HelloWorld extends React.Component {
+export default class HelloWorld extends Component {
     render() { return (
         <h1>Hello World!</h1>
     ); }
 }
 
-ReactDOM.render(<HelloWorld/>, document.getElementById('app'));
+render(<HelloWorld/>, document.getElementById('app'));
 ```
 
 ## Babeljs
@@ -100,7 +100,7 @@ module.exports = {
 
 Instalação global:
 
-`npm i -g webpack-dev-server`
+`npm i -g webpack-dev-serv
 
 ## localhost:8080
 
