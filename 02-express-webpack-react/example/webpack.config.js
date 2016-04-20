@@ -2,7 +2,7 @@ import webpack from 'webpack';
 import html from 'html-webpack-plugin';
 
 module.exports = {
-    entry: './client.jsx',
+    entry: './main.jsx',
     output: { path: 'dist', filename: 'index_bundle.js' },
     plugins: [new html()],
     module: {
