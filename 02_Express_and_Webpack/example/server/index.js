@@ -1,14 +1,12 @@
 // Express #####################################################################
 
-import express from 'express';
-const app = express();
+const app = require('express')();
 
 // Webpack #####################################################################
 
-import webpack from 'webpack';
-import webpackConfig from '../webpack.config.js';
 import webpackMiddleware from 'webpack-dev-middleware';
-const compiler = webpack(webpackConfig);
+import webpackConfig from '../webpack.config.js';
+const compiler = require('webpack')(webpackConfig);
 
 // Configuração do Express #####################################################
 
