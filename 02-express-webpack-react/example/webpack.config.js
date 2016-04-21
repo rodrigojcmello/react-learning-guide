@@ -1,10 +1,10 @@
-import webpack from 'webpack';
-import html from 'html-webpack-plugin';
+var webpack = require('webpack');
+var html = require('html-webpack-plugin');
 
 module.exports = {
     entry: './main.jsx',
-    output: { path: 'dist', filename: 'index_bundle.js' },
-    plugins: [new html()],
+    output: { path: __dirname + 'dist', filename: 'bundle.js' },
+    plugins: [new html({ template: 'index.html' })],
     module: {
         loaders: [{
             test: /.jsx$/,
