@@ -44,7 +44,7 @@ render(<HelloWorld/>, document.getElementById('app'));
 
 ## Babeljs
 
-*Compilador JavaScript que suporta sintaxes ES6 e JSX.*
+*Compilador JavaScript que suporta ES6 e JSX.*
 
 Instalação:
 
