@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "74b7fd455414c0953bba"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "59c402ffdb5cc19099b6"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -584,7 +584,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(179);
-	module.exports = __webpack_require__(87);
+	module.exports = __webpack_require__(88);
 
 
 /***/ },
@@ -10900,28 +10900,6 @@
 
 	'use strict';
 
-	var _react = __webpack_require__(84);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactDom = __webpack_require__(109);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-
-	var _hello = __webpack_require__(88);
-
-	var _hello2 = _interopRequireDefault(_hello);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	_reactDom2.default.render(_react2.default.createElement(_hello2.default, null), document.getElementById('app'));
-
-/***/ },
-/* 88 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
@@ -10940,30 +10918,50 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Hello = function (_React$Component) {
-	    _inherits(Hello, _React$Component);
+	var HelloWorld = function (_Component) {
+	    _inherits(HelloWorld, _Component);
 
-	    function Hello() {
-	        _classCallCheck(this, Hello);
+	    function HelloWorld() {
+	        _classCallCheck(this, HelloWorld);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Hello).apply(this, arguments));
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(HelloWorld).apply(this, arguments));
 	    }
 
-	    _createClass(Hello, [{
+	    _createClass(HelloWorld, [{
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'h1',
 	                null,
-	                'Olá Mundo! Express! Hot Loading!'
+	                'Hello World! Hotloading!'
 	            );
 	        }
 	    }]);
 
-	    return Hello;
-	}(_react2.default.Component);
+	    return HelloWorld;
+	}(_react.Component);
 
-	exports.default = Hello;
+	exports.default = HelloWorld;
+
+/***/ },
+/* 88 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(84);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(109);
+
+	var _HelloWorld = __webpack_require__(87);
+
+	var _HelloWorld2 = _interopRequireDefault(_HelloWorld);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	(0, _reactDom.render)(_react2.default.createElement(_HelloWorld2.default, null), document.getElementById('app'));
 
 /***/ },
 /* 89 */
