@@ -1,3 +1,0 @@
-# Express Webpack React
-
-Em breve...

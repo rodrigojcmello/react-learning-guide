@@ -4,24 +4,16 @@
     "description": "React e webpack-dev-server",
     "author": "Rodrigo José Carvalho de Mello",
     "license": "ISC",
-    "babel": {
-        "presets": ["es2015", "react"]
-    },
+    "babel": { "presets": ["es2015", "react"] },
     "eslintConfig": {
         "parserOptions": {
             "ecmaVersion": 6,
             "sourceType": "module",
-            "ecmaFeatures": {
-                "jsx": true
-            }
+            "ecmaFeatures": { "jsx": true }
         },
-        "rules": {
-            "semi": 2
-        }
+        "rules": { "semi": 2 }
     },
-    "scripts": {
-        "start": "webpack-dev-server"
-    },
+    "scripts": { "start": "webpack-dev-server" },
     "dependencies": {
         "react": "^15.0.1",
         "react-dom": "^15.0.1"
