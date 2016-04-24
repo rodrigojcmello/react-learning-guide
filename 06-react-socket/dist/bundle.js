@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "db0beef44ee06191602f"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "0309c3fd49a3fc2c781e"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -10942,6 +10942,7 @@
 
 	__webpack_require__(183);
 	var socket = io.connect("http://localhost:3000");
+	var data = [];
 
 	var BatePapo = function (_Component) {
 	    _inherits(BatePapo, _Component);
@@ -10949,28 +10950,25 @@
 	    function BatePapo(props) {
 	        _classCallCheck(this, BatePapo);
 
+	        // var data = [];
+
 	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(BatePapo).call(this, props));
 
-	        _this.state = {
-	            "data": [{ "usuario": "Rodrigo Mello", "texto": 'Olá tudo bem?' }, { "usuario": "Rodrigo Mello", "texto": 'Boa tarde!' }, { "usuario": "Rodrigo Mello", "texto": 'Como vai?' }, { "usuario": "Rodrigo Mello", "texto": 'Como vai?' }, { "usuario": "Rodrigo Mello", "texto": 'Como vai?' }]
-	        };
+	        _this.state = { data: data };
 	        _this.socketOn = _this.socketOn.bind(_this);
 	        return _this;
 	    }
 
 	    _createClass(BatePapo, [{
 	        key: 'socketOn',
-	        value: function socketOn(data) {
+	        value: function socketOn(msg) {
+	            data.push(msg);
 	            this.setState({ data: data });
-	        }
-	    }, {
-	        key: 'componentWillMount',
-	        value: function componentWillMount() {
-	            document.title = 'React e Socket.io';
 	        }
 	    }, {
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
+	            document.title = 'React e Socket.io';
 	            var BatePapo = this;
 	            socket.on('chat message', function (msg) {
 	                BatePapo.socketOn(msg);

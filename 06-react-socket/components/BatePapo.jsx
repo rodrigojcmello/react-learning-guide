@@ -3,28 +3,19 @@ import Mensagem from './Mensagem.jsx';
 import $ from 'jquery';
 require('./BatePapo.css');
 const socket = io.connect("http://localhost:3000");
-
+var data = [];
 export default class BatePapo extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            "data": [
-                {"usuario": "Rodrigo Mello", "texto": 'Olá tudo bem?'},
-                {"usuario": "Rodrigo Mello", "texto": 'Boa tarde!'},
-                {"usuario": "Rodrigo Mello", "texto": 'Como vai?'},
-                {"usuario": "Rodrigo Mello", "texto": 'Como vai?'},
-                {"usuario": "Rodrigo Mello", "texto": 'Como vai?'}
-            ]
-        };
+        this.state = {data};
         this.socketOn = this.socketOn.bind(this);
     }
-    socketOn(data) {
+    socketOn(msg) {
+        data.push(msg);
         this.setState({data});
     }
-    componentWillMount() {
-        document.title = 'React e Socket.io';
-    }
     componentDidMount() {
+        document.title = 'React e Socket.io';
         const BatePapo = this;
         socket.on('chat message', function(msg) {
             BatePapo.socketOn(msg);

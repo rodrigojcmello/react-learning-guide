@@ -19,17 +19,9 @@ app.use(webpackHotMiddleware(compiler));
 app.get('/', function(req, res) {
     res.sendFile(__dirname + '/dist/index.html');
 });
-var data = [
-    {"usuario": "Rodrigo Mello", "texto": 'Olá tudo bem?'},
-    {"usuario": "Rodrigo Mello", "texto": 'Boa tarde!'},
-    {"usuario": "Rodrigo Mello", "texto": 'Como vai?'},
-    {"usuario": "Rodrigo Mello", "texto": 'Como vai?'},
-    {"usuario": "Rodrigo Mello", "texto": 'Como vai?'}
-];
 io.on('connection', function(socket) {
     socket.on('chat message', function(msg) {
-        data.push(msg);
-        io.emit('chat message', data);
+        io.emit('chat message', msg);
     });
 });
 http.listen(3000, function() {
