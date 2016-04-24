@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Mensagem from './Mensagem.jsx';
 import $ from 'jquery';
 require('./BatePapo.css');
+const socket = io.connect("http://localhost:3000");
 
 export default class BatePapo extends Component {
     constructor(props) {
@@ -15,7 +16,6 @@ export default class BatePapo extends Component {
                 {"usuario": "Rodrigo Mello", "texto": 'Como vai?'}
             ]
         };
-        this.handleSubmit = this.handleSubmit.bind(this);
         this.socketOn = this.socketOn.bind(this);
     }
     socketOn(data) {
@@ -25,7 +25,6 @@ export default class BatePapo extends Component {
         document.title = 'React e Socket.io';
     }
     componentDidMount() {
-        var socket = io.connect("http://localhost:3000");
         const BatePapo = this;
         socket.on('chat message', function(msg) {
             BatePapo.socketOn(msg);
@@ -33,9 +32,8 @@ export default class BatePapo extends Component {
     }
     handleSubmit(e) {
         e.preventDefault();
-        var socket = io.connect("http://localhost:3000");
-        var msg = new Object();
-        msg.usuario = "Fulano";
+        let msg = new Object();
+        msg.usuario = $('#usuario').val();
         msg.texto = $('#mensagem').val();
         socket.emit('chat message', msg);
         $('#mensagem').val('');
@@ -52,6 +50,7 @@ export default class BatePapo extends Component {
                     {mensagemNode}
                 </ul>
                 <form action="" onSubmit={this.handleSubmit}>
+                    <input id="usuario" name="usuario" />
                     <input id="mensagem" name="mensagem" autocomplete="off" />
                     <button>Send</button>
                 </form>

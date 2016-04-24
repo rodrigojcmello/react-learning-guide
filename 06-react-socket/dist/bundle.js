@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "4132d81ae5c5f397b4fa"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "a46dfdd63e682eec36b8"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -10942,6 +10942,8 @@
 
 	__webpack_require__(183);
 
+	var socket = io.connect("http://localhost:3000");
+
 	var BatePapo = function (_Component) {
 	    _inherits(BatePapo, _Component);
 
@@ -10953,7 +10955,6 @@
 	        _this.state = {
 	            "data": [{ "usuario": "Rodrigo Mello", "texto": 'Olá tudo bem?' }, { "usuario": "Rodrigo Mello", "texto": 'Boa tarde!' }, { "usuario": "Rodrigo Mello", "texto": 'Como vai?' }, { "usuario": "Rodrigo Mello", "texto": 'Como vai?' }, { "usuario": "Rodrigo Mello", "texto": 'Como vai?' }]
 	        };
-	        _this.handleSubmit = _this.handleSubmit.bind(_this);
 	        _this.socketOn = _this.socketOn.bind(_this);
 	        return _this;
 	    }
@@ -10961,25 +10962,7 @@
 	    _createClass(BatePapo, [{
 	        key: 'socketOn',
 	        value: function socketOn(data) {
-	            console.log('socketOn');
-	            console.log({ data: data });
-
-	            // this.setState({"data": [{"usuario":data.usuario, "texto": data.texto}]});
-	            // this.setState({"data": [{"usuario":data.usuario, "texto": data.texto}]});
-	            this.setState({
-	                "data": [data]
-	            });
-	            // this.setState({
-	            //     "data": [
-	            //         {"usuario": "Rodrigo Mello", "texto": 'Olá tudo bem?'},
-	            //         {"usuario": "Rodrigo Mello", "texto": 'Boa tarde!'},
-	            //         {"usuario": "Rodrigo Mello", "texto": 'Como vai?'},
-	            //         {"usuario": "Rodrigo Mello", "texto": 'Como vai?'},
-	            //         {"usuario": "Rodrigo Mello", "texto": 'Como vai?'},
-	            //         {"usuario": "Rodrigo Mello", "texto": 'Como vai?'},
-	            //         {"usuario": "Rodrigo Mello", "texto": 'Como vai?'}
-	            //     ]
-	            // });
+	            this.setState({ data: data });
 	        }
 	    }, {
 	        key: 'componentWillMount',
@@ -10989,11 +10972,8 @@
 	    }, {
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
-	            var socket = io.connect("http://localhost:3000");
 	            var BatePapo = this;
 	            socket.on('chat message', function (msg) {
-	                // console.log('aqui');
-	                // console.log(msg);
 	                BatePapo.socketOn(msg);
 	            });
 	        }
@@ -11001,7 +10981,6 @@
 	        key: 'handleSubmit',
 	        value: function handleSubmit(e) {
 	            e.preventDefault();
-	            var socket = io.connect("http://localhost:3000");
 	            var msg = new Object();
 	            msg.usuario = "Fulano";
 	            msg.texto = (0, _jquery2.default)('#mensagem').val();
@@ -11011,7 +10990,6 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            // console.log(this.state);
 	            var mensagemNode = this.state.data.map(function (mensagem, i) {
 	                return _react2.default.createElement(_Mensagem2.default, { key: i, data: mensagem });
 	            });
