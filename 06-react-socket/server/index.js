@@ -20,8 +20,12 @@ app.get('/', function(req, res) {
     res.sendFile(__dirname + '/dist/index.html');
 });
 io.on('connection', function(socket) {
+    console.log('novo usuário online.');
+    io.emit('chat message', 'conectado');
     socket.on('chat message', function(msg) {
-        io.emit('chat message', msg);
+        // setTimeout(function() {
+            io.emit('chat message', msg);
+        // }, 1000);
     });
 });
 http.listen(3000, function() {

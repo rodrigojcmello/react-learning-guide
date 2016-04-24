@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "0309c3fd49a3fc2c781e"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "b4febc044c2f905380f9"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -10942,7 +10942,9 @@
 
 	__webpack_require__(183);
 	var socket = io.connect("http://localhost:3000");
+
 	var data = [];
+	var msg = new Object();
 
 	var BatePapo = function (_Component) {
 	    _inherits(BatePapo, _Component);
@@ -10950,20 +10952,21 @@
 	    function BatePapo(props) {
 	        _classCallCheck(this, BatePapo);
 
-	        // var data = [];
-
 	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(BatePapo).call(this, props));
 
 	        _this.state = { data: data };
 	        _this.socketOn = _this.socketOn.bind(_this);
+	        _this.handleSubmit = _this.handleSubmit.bind(_this);
 	        return _this;
 	    }
 
 	    _createClass(BatePapo, [{
 	        key: 'socketOn',
-	        value: function socketOn(msg) {
-	            data.push(msg);
-	            this.setState({ data: data });
+	        value: function socketOn(retorno) {
+	            if (retorno.usuario !== msg.usuario && retorno.data !== msg.data) {
+	                data.push(retorno);
+	                this.setState({ data: data });
+	            }
 	        }
 	    }, {
 	        key: 'componentDidMount',
@@ -10978,11 +10981,13 @@
 	        key: 'handleSubmit',
 	        value: function handleSubmit(e) {
 	            e.preventDefault();
-	            var msg = new Object();
-	            msg.usuario = (0, _jquery2.default)('#usuario').val();
-	            msg.texto = (0, _jquery2.default)('#mensagem').val();
-	            socket.emit('chat message', msg);
-	            (0, _jquery2.default)('#mensagem').val('');
+	            msg.usuario = (0, _jquery2.default)("#usuario").val();
+	            msg.texto = (0, _jquery2.default)("#mensagem").val();
+	            msg.data = new Date();
+	            data.push(msg);
+	            this.setState({ data: data });
+	            socket.emit("chat message", msg);
+	            (0, _jquery2.default)("#mensagem").val("");
 	        }
 	    }, {
 	        key: 'render',
@@ -11054,17 +11059,29 @@
 	    _createClass(Mensagem, [{
 	        key: 'render',
 	        value: function render() {
-	            return _react2.default.createElement(
-	                'li',
-	                null,
-	                _react2.default.createElement(
-	                    'strong',
+	            var lista;
+	            console.log('log mensagem');
+	            console.log(this.props.data);
+	            if (this.props.data == "conectado") {
+	                lista = _react2.default.createElement(
+	                    'li',
 	                    null,
-	                    this.props.data.usuario,
-	                    ': '
-	                ),
-	                this.props.data.texto
-	            );
+	                    'novo usuário conectado...'
+	                );
+	            } else {
+	                lista = _react2.default.createElement(
+	                    'li',
+	                    null,
+	                    _react2.default.createElement(
+	                        'strong',
+	                        null,
+	                        this.props.data.usuario,
+	                        ': '
+	                    ),
+	                    this.props.data.texto
+	                );
+	            }
+	            return lista;
 	        }
 	    }]);
 
