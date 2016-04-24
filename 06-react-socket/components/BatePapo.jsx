@@ -7,7 +7,7 @@ export default class BatePapo extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: [
+            "data": [
                 {"usuario": "Rodrigo Mello", "texto": 'Olá tudo bem?'},
                 {"usuario": "Rodrigo Mello", "texto": 'Boa tarde!'},
                 {"usuario": "Rodrigo Mello", "texto": 'Como vai?'},
@@ -18,11 +18,13 @@ export default class BatePapo extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.socketOn = this.socketOn.bind(this);
     }
-    socketOn(msg) {
-        this.setState({"data":[ {"usuario": 'rodrigo', "texto": msg}]});
+    socketOn(data) {
+        this.setState({data});
+    }
+    componentWillMount() {
+        document.title = 'React e Socket.io';
     }
     componentDidMount() {
-        document.title = 'React e Socket.io';
         var socket = io.connect("http://localhost:3000");
         const BatePapo = this;
         socket.on('chat message', function(msg) {
@@ -31,16 +33,14 @@ export default class BatePapo extends Component {
     }
     handleSubmit(e) {
         e.preventDefault();
-
         var socket = io.connect("http://localhost:3000");
-        socket.emit('chat message', $('#mensagem').val());
-
-
-
+        var msg = new Object();
+        msg.usuario = "Fulano";
+        msg.texto = $('#mensagem').val();
+        socket.emit('chat message', msg);
         $('#mensagem').val('');
     }
     render() {
-        console.log(this.state);
         var mensagemNode = this.state.data.map(function(mensagem, i) {
             return (
                 <Mensagem key={i} data={mensagem} />

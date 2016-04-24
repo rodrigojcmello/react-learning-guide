@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "866f65a494d8e7b3e433"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "4132d81ae5c5f397b4fa"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -10951,34 +10951,67 @@
 	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(BatePapo).call(this, props));
 
 	        _this.state = {
-	            data: [{ "usuario": "Rodrigo Mello", "texto": 'Olá tudo bem?' }, { "usuario": "Rodrigo Mello", "texto": 'Boa tarde!' }, { "usuario": "Rodrigo Mello", "texto": 'Como vai?' }, { "usuario": "Rodrigo Mello", "texto": 'Como vai?' }, { "usuario": "Rodrigo Mello", "texto": 'Como vai?' }]
+	            "data": [{ "usuario": "Rodrigo Mello", "texto": 'Olá tudo bem?' }, { "usuario": "Rodrigo Mello", "texto": 'Boa tarde!' }, { "usuario": "Rodrigo Mello", "texto": 'Como vai?' }, { "usuario": "Rodrigo Mello", "texto": 'Como vai?' }, { "usuario": "Rodrigo Mello", "texto": 'Como vai?' }]
 	        };
 	        _this.handleSubmit = _this.handleSubmit.bind(_this);
+	        _this.socketOn = _this.socketOn.bind(_this);
 	        return _this;
 	    }
 
 	    _createClass(BatePapo, [{
+	        key: 'socketOn',
+	        value: function socketOn(data) {
+	            console.log('socketOn');
+	            console.log({ data: data });
+
+	            // this.setState({"data": [{"usuario":data.usuario, "texto": data.texto}]});
+	            // this.setState({"data": [{"usuario":data.usuario, "texto": data.texto}]});
+	            this.setState({
+	                "data": [data]
+	            });
+	            // this.setState({
+	            //     "data": [
+	            //         {"usuario": "Rodrigo Mello", "texto": 'Olá tudo bem?'},
+	            //         {"usuario": "Rodrigo Mello", "texto": 'Boa tarde!'},
+	            //         {"usuario": "Rodrigo Mello", "texto": 'Como vai?'},
+	            //         {"usuario": "Rodrigo Mello", "texto": 'Como vai?'},
+	            //         {"usuario": "Rodrigo Mello", "texto": 'Como vai?'},
+	            //         {"usuario": "Rodrigo Mello", "texto": 'Como vai?'},
+	            //         {"usuario": "Rodrigo Mello", "texto": 'Como vai?'}
+	            //     ]
+	            // });
+	        }
+	    }, {
+	        key: 'componentWillMount',
+	        value: function componentWillMount() {
+	            document.title = 'React e Socket.io';
+	        }
+	    }, {
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
-	            document.title = 'React e Socket.io';
+	            var socket = io.connect("http://localhost:3000");
+	            var BatePapo = this;
+	            socket.on('chat message', function (msg) {
+	                // console.log('aqui');
+	                // console.log(msg);
+	                BatePapo.socketOn(msg);
+	            });
 	        }
 	    }, {
 	        key: 'handleSubmit',
 	        value: function handleSubmit(e) {
 	            e.preventDefault();
-	            console.log((0, _jquery2.default)('#mensagem').val());
 	            var socket = io.connect("http://localhost:3000");
-	            socket.emit('chat message', (0, _jquery2.default)('#mensagem').val());
-	            this.setState({ "data": [{ "usuario": "Rodrigo Mello", "texto": (0, _jquery2.default)('#mensagem').val() }] });
-	            // socket.on('chat message', function(msg) {
-	            // });
-
+	            var msg = new Object();
+	            msg.usuario = "Fulano";
+	            msg.texto = (0, _jquery2.default)('#mensagem').val();
+	            socket.emit('chat message', msg);
 	            (0, _jquery2.default)('#mensagem').val('');
 	        }
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            console.log(this.state);
+	            // console.log(this.state);
 	            var mensagemNode = this.state.data.map(function (mensagem, i) {
 	                return _react2.default.createElement(_Mensagem2.default, { key: i, data: mensagem });
 	            });
