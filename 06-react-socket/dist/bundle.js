@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "a46dfdd63e682eec36b8"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "db0beef44ee06191602f"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -4098,7 +4098,7 @@
 
 
 	// module
-	exports.push([module.id, "* { margin: 0; padding: 0; box-sizing: border-box; }\nbody { font: 13px Helvetica, Arial; }\nform { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }\nform input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }\nform button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }\n#messages { list-style-type: none; margin: 0; padding: 0; }\n#messages li { padding: 5px 10px; }\n#messages li:nth-child(odd) { background: #eee; }\n", ""]);
+	exports.push([module.id, "* { margin: 0; padding: 0; box-sizing: border-box; }\nbody { font: 13px Helvetica, Arial; }\nform { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }\nform input { border: 0; padding: 10px; margin: 8px; width: 90%; margin-right: .5%; }\nform button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }\n#messages { list-style-type: none; margin: 0; padding: 0; }\n#messages li:nth-child(odd) { background: #f7f7f7; }\n\n#messages li {\n    animation: fadein 1s;\n    padding: 12px 16px;\n    line-height: 18px;\n}\n@keyframes fadein {\n    from { opacity:0; }\n    to { opacity:1; }\n}\n", ""]);
 
 	// exports
 
@@ -10941,7 +10941,6 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	__webpack_require__(183);
-
 	var socket = io.connect("http://localhost:3000");
 
 	var BatePapo = function (_Component) {
@@ -10982,7 +10981,7 @@
 	        value: function handleSubmit(e) {
 	            e.preventDefault();
 	            var msg = new Object();
-	            msg.usuario = "Fulano";
+	            msg.usuario = (0, _jquery2.default)('#usuario').val();
 	            msg.texto = (0, _jquery2.default)('#mensagem').val();
 	            socket.emit('chat message', msg);
 	            (0, _jquery2.default)('#mensagem').val('');
@@ -11004,6 +11003,7 @@
 	                _react2.default.createElement(
 	                    'form',
 	                    { action: '', onSubmit: this.handleSubmit },
+	                    _react2.default.createElement('input', { id: 'usuario', name: 'usuario' }),
 	                    _react2.default.createElement('input', { id: 'mensagem', name: 'mensagem', autocomplete: 'off' }),
 	                    _react2.default.createElement(
 	                        'button',
