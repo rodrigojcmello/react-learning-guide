@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import Mensagem from './Mensagem.jsx';
+
+import Container from './Container.jsx';
+
 import $ from 'jquery';
 require('./BatePapo.css');
 const socket = io.connect("http://localhost:3000");
@@ -29,11 +32,14 @@ export default class BatePapo extends Component {
     }
     handleSubmit(e) {
         e.preventDefault();
+
         msg.usuario = $("#usuario").val();
         msg.texto = $("#mensagem").val();
         msg.data = new Date();
+
         data.push(msg);
         this.setState({data});
+
         socket.emit("chat message", msg);
         $("#mensagem").val("");
     }
@@ -44,7 +50,7 @@ export default class BatePapo extends Component {
             );
         });
         return (
-            <div>
+            <Container>
                 <ul id="messages">
                     {mensagemNode}
                 </ul>
@@ -53,7 +59,7 @@ export default class BatePapo extends Component {
                     <input id="mensagem" name="mensagem" autocomplete="off" />
                     <button>Send</button>
                 </form>
-            </div>
+            </Container>
         );
     }
 }

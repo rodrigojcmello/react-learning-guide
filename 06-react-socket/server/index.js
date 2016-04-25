@@ -23,9 +23,7 @@ io.on('connection', function(socket) {
     console.log('novo usuário online.');
     io.emit('chat message', 'conectado');
     socket.on('chat message', function(msg) {
-        // setTimeout(function() {
-            io.emit('chat message', msg);
-        // }, 1000);
+        io.emit('chat message', msg);
     });
 });
 http.listen(3000, function() {
