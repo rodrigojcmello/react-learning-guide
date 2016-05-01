@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { render } from 'react-dom';
+const React = require("react");
+const ReactDOM = require("react-dom");
 
-export default class HelloWorld extends Component {
+export default class HelloWorld extends React.Component {
     render() { return (
         <h1>Hello World!</h1>
     ); }
 }
 
-render(<HelloWorld/>, document.getElementById('app'));
+ReactDOM.render(<HelloWorld/>, document.getElementById('app'));
