@@ -1,12 +1,12 @@
-const webpack = require('webpack');
+const webpack = require("webpack");
 
 module.exports = {
-    entry: './HelloWorld.jsx',
+    entry: "./HelloWorld.jsx",
     output: { filename: 'bundle.js' },
     module: {
         loaders: [{
             test: /.jsx$/,
-            loader: 'babel-loader',
+            loader: "babel-loader",
             exclude: /node_modules/
         }]
     }

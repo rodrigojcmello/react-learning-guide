@@ -1,5 +1,5 @@
-const React = require("react");
-const ReactDOM = require("react-dom");
+import React from 'react';
+import reactDOM from 'react-dom';
 
 export default class HelloWorld extends React.Component {
     render() { return (
@@ -7,4 +7,4 @@ export default class HelloWorld extends React.Component {
     ); }
 }
 
-ReactDOM.render(<HelloWorld/>, document.getElementById('app'));
+reactDOM.render(<HelloWorld/>, document.getElementById('app'));
