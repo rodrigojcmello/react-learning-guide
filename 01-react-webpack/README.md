@@ -30,19 +30,19 @@ Criação de componente:
 
 ```
 // HelloWorld.jsx
-import React, { Component } from 'react';
-import { render } from 'react-dom';
+import React from 'react';
+import reactDOM from 'react-dom';
 
-export default class HelloWorld extends Component {
+export default class HelloWorld extends React.Component {
     render() { return (
         <h1>Hello World!</h1>
     ); }
 }
 
-render(<HelloWorld/>, document.getElementById('app'));
+reactDOM.render(<HelloWorld/>, document.getElementById('app'));
 ```
 
-## Babeljs
+## Babel
 
 *Compilador JavaScript que suporta ES6 e JSX.*
 
@@ -50,12 +50,9 @@ Instalação:
 
 `npm i --save-dev babel-core babel-loader babel-preset-es2015 babel-preset-react`
 
-
-
-Configuração do Babeljs:
+Para configuração o Babel adicione ao seu package.json:
 ```
-//.babelrc
-{ "presets": ["es2015", "react"] }
+"babel": { "presets": ["es2015", "react"] }
 ```
 
 ## HTML
@@ -66,7 +63,7 @@ Configuração do Babeljs:
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>01-react-webpack</title>
+    <title>01 - React Webpack</title>
 </head>
 <body>
     <div id="app"></div>
@@ -87,15 +84,15 @@ Configuração do Webpack:
 
 ```
 // webpack.config.js
-var webpack = require('webpack');
+const webpack = require("webpack");
 
 module.exports = {
-    entry: './HelloWorld.jsx',
+    entry: "./HelloWorld.jsx",
     output: { filename: 'bundle.js' },
     module: {
         loaders: [{
             test: /.jsx$/,
-            loader: 'babel-loader',
+            loader: "babel",
             exclude: /node_modules/
         }]
     }
@@ -112,7 +109,7 @@ Instalação global:
 
 ## localhost:8080
 
-No terminal:
+No terminal use:
 
 `webpack-dev-server`
 
