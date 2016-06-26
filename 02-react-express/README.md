@@ -16,20 +16,17 @@ O mesmo que o exemplo 01, apenas altere o script "start":
 
 ## React
 
-O mesmo que o exemplo 01, só que jogue o componente dentre de um diretório "components" para fins de organização:
+Básicamente o mesmo que o exemplo 01, coloque o componente (HelloWorld.jsx) dentre de um diretório "components" para fins de organização e remova as linhas referentes ao render:
 
 ```
 // components/HelloWorld.jsx
 import React from 'react';
-import reactDOM from 'react-dom';
 
 export default class HelloWorld extends React.Component {
     render() { return (
         <h1>Hello World!</h1>
     ); }
 }
-
-reactDOM.render(<HelloWorld/>, document.getElementById('app'));
 ```
 
 ## Babel
@@ -61,10 +58,12 @@ O Script será inserido pelo webpack.
 ```
 // webpack.config.js
 const webpack = require("webpack");
+const html = require("html-webpack-plugin");
 
 module.exports = {
-    entry: "./HelloWorld.jsx",
-    output: { filename: 'bundle.js' },
+    entry: "./main.jsx",
+    output: { path: __dirname + "/dist", filename: "bundle.js" },
+    plugins: [new html({ template: "index.html" })],
     module: {
         loaders: [{
             test: /.jsx$/,
