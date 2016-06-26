@@ -1,5 +1,5 @@
 {
-    "name": "03-react-hotloading",
+    "name": "01-react-webpack",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
@@ -14,13 +14,10 @@
         },
         "rules": { "semi": 2 }
     },
-    "scripts": {
-        "start": "webpack && node index.js"
-    },
     "dependencies": {
         "react": "^15.1.0",
         "react-dom": "^15.1.0",
-        "webpack": "^1.13.1"
+        "react-router": "^2.5.1"
     },
     "devDependencies": {
         "babel-core": "^6.10.4",
@@ -30,7 +27,11 @@
         "babel-register": "^6.9.0",
         "express": "^4.14.0",
         "html-webpack-plugin": "^2.21.0",
+        "webpack": "^1.13.1",
         "webpack-dev-middleware": "^1.6.1",
         "webpack-hot-middleware": "^2.10.0"
+    },
+    "scripts": {
+        "start": "webpack && node index.js"
     }
 }

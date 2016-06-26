@@ -1,10 +1,10 @@
-const webpack = require("webpack");
-const html = require("html-webpack-plugin");
+var webpack = require("webpack");
+var html = require("html-webpack-plugin");
 
 module.exports = {
     entry: [
         "webpack-hot-middleware/client?reload=true",
-        __dirname + "/main.jsx"
+        __dirname + "/client.jsx"
     ],
     output: { path: __dirname + "/dist", filename: "bundle.js" },
     plugins: [
@@ -15,7 +15,7 @@ module.exports = {
     ],
     module: {
         loaders: [
-            { test: /.jsx$/, loader: "babel-loader", exclude: /node_modules/ }
+            { test: /.jsx?$/, loader: "babel", exclude: /node_modules/ }
         ]
     }
 };
