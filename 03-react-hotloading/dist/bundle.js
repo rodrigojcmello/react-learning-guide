@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "0a8af28bdc96951cb590"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "cee0306ac22f4e4e30ea"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -11177,7 +11177,7 @@
 /* 89 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -11207,12 +11207,12 @@
 	    }
 
 	    _createClass(HelloWorld, [{
-	        key: 'render',
+	        key: "render",
 	        value: function render() {
 	            return _react2.default.createElement(
-	                'h1',
+	                "h1",
 	                null,
-	                'Hello World! Hotloading!'
+	                "Hello World! Hotloading!"
 	            );
 	        }
 	    }]);

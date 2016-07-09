@@ -1,7 +1,7 @@
 const webpack = require("webpack");
 
 module.exports = {
-    entry: "./HelloWorld.jsx",
+    entry: "./OlaMundo.jsx",
     output: { filename: 'bundle.js' },
     module: {
         loaders: [
