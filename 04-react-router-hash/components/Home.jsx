@@ -2,9 +2,11 @@ import React, { Component } from "react";
 
 export default class Home extends Component {
     componentDidMount() {
-        document.title = "Home";
+        document.title = "Início";
     }
-    render() { return (
-        <h1>Esta é a Home!</h1>
-    ); }
+    render() {
+        return (
+            <h1>Esta é a Home!</h1>
+        );
+    }
 }
