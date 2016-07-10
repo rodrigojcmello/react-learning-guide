@@ -1,5 +1,5 @@
 import React from 'react';
 import { render } from 'react-dom';
-import HelloWorld from './components/HelloWorld.jsx';
+import OlaHotReloading from './components/OlaHotReloading.jsx';
 
-render(<HelloWorld />, document.getElementById('app'));
+render(<OlaHotReloading />, document.getElementById('app'));

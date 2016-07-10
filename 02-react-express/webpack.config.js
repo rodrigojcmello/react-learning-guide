@@ -6,10 +6,8 @@ module.exports = {
     output: { path: __dirname + "/dist", filename: "bundle.js" },
     plugins: [new html({ template: "index.html" })],
     module: {
-        loaders: [{
-            test: /.jsx$/,
-            loader: "babel",
-            exclude: /node_modules/
-        }]
+        loaders: [
+            { test: /.jsx$/, loader: "babel", exclude: /node_modules/ }
+        ]
     }
 };

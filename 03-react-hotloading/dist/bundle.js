@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "cee0306ac22f4e4e30ea"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "0e2391ae531cd4ce406b"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -11197,30 +11197,30 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var HelloWorld = function (_Component) {
-	    _inherits(HelloWorld, _Component);
+	var OlaHotReloading = function (_Component) {
+	    _inherits(OlaHotReloading, _Component);
 
-	    function HelloWorld() {
-	        _classCallCheck(this, HelloWorld);
+	    function OlaHotReloading() {
+	        _classCallCheck(this, OlaHotReloading);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(HelloWorld).apply(this, arguments));
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(OlaHotReloading).apply(this, arguments));
 	    }
 
-	    _createClass(HelloWorld, [{
+	    _createClass(OlaHotReloading, [{
 	        key: "render",
 	        value: function render() {
 	            return _react2.default.createElement(
 	                "h1",
 	                null,
-	                "Hello World! Hotloading!"
+	                "Olá Hot Reloading!"
 	            );
 	        }
 	    }]);
 
-	    return HelloWorld;
+	    return OlaHotReloading;
 	}(_react.Component);
 
-	exports.default = HelloWorld;
+	exports.default = OlaHotReloading;
 
 /***/ },
 /* 90 */
@@ -11234,13 +11234,13 @@
 
 	var _reactDom = __webpack_require__(111);
 
-	var _HelloWorld = __webpack_require__(89);
+	var _OlaHotReloading = __webpack_require__(89);
 
-	var _HelloWorld2 = _interopRequireDefault(_HelloWorld);
+	var _OlaHotReloading2 = _interopRequireDefault(_OlaHotReloading);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	(0, _reactDom.render)(_react2.default.createElement(_HelloWorld2.default, null), document.getElementById('app'));
+	(0, _reactDom.render)(_react2.default.createElement(_OlaHotReloading2.default, null), document.getElementById('app'));
 
 /***/ },
 /* 91 */

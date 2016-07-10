@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "react-dom";
 
-import HelloWorld from "./components/HelloWorld.jsx";
+import OlaExpress from "./components/OlaExpress.jsx";
 
-render(<HelloWorld />, document.getElementById("app"));
+render(<OlaExpress />, document.getElementById("app"));
