@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "e245cd5c960c9b1351b6"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "12d0a222ea75de2bb7e3"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -14435,7 +14435,7 @@
 /* 122 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -14455,8 +14455,8 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Hello = function (_React$Component) {
-	    _inherits(Hello, _React$Component);
+	var Hello = function (_Component) {
+	    _inherits(Hello, _Component);
 
 	    function Hello() {
 	        _classCallCheck(this, Hello);
@@ -14465,18 +14465,18 @@
 	    }
 
 	    _createClass(Hello, [{
-	        key: "render",
+	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
-	                "h1",
+	                'h1',
 	                null,
-	                "Olá Mundo! Express! React Router!"
+	                'Olá Mundo! Express! React Router!'
 	            );
 	        }
 	    }]);
 
 	    return Hello;
-	}(_react2.default.Component);
+	}(_react.Component);
 
 	exports.default = Hello;
 
@@ -14484,7 +14484,7 @@
 /* 123 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -14504,8 +14504,8 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Teste = function (_React$Component) {
-	    _inherits(Teste, _React$Component);
+	var Teste = function (_Component) {
+	    _inherits(Teste, _Component);
 
 	    function Teste() {
 	        _classCallCheck(this, Teste);
@@ -14514,18 +14514,18 @@
 	    }
 
 	    _createClass(Teste, [{
-	        key: "render",
+	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
-	                "h1",
+	                'h1',
 	                null,
-	                "Teste!"
+	                'Teste!'
 	            );
 	        }
 	    }]);
 
 	    return Teste;
-	}(_react2.default.Component);
+	}(_react.Component);
 
 	exports.default = Teste;
 
@@ -14533,7 +14533,7 @@
 /* 124 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	var _react = __webpack_require__(5);
 
@@ -14559,9 +14559,9 @@
 
 	module.exports = _react2.default.createElement(
 	    _reactRouter.Route,
-	    { path: "/", component: _App2.default },
+	    { path: '/', component: _App2.default },
 	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _Hello2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: "/teste", component: _Teste2.default })
+	    _react2.default.createElement(_reactRouter.Route, { path: '/teste', component: _Teste2.default })
 	);
 
 	// Components ------------------------------------------------------------------
