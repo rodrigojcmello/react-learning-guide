@@ -1,17 +1,18 @@
 // Express ---------------------------------------------------------------------
-import express from 'express';
+const express = require('express');
 const app = express();
 
 // Webpack ---------------------------------------------------------------------
-import webpack from 'webpack';
-import webpackConfig from '../webpack.config.js';
-import webpackMiddleware from 'webpack-dev-middleware';
-import webpackHotMiddleware from 'webpack-hot-middleware';
+const webpack = require('webpack');
+const webpackConfig = require('../webpack.config.js');
+const webpackMiddleware = require('webpack-dev-middleware');
+const webpackHotMiddleware = require('webpack-hot-middleware');
 const compiler = webpack(webpackConfig);
 
 // React Router ----------------------------------------------------------------
 import { match } from 'react-router';
-import routes from './routes.jsx';
+// const match = require('react-router').match();
+const routes = require('./routes.jsx');
 
 // -----------------------------------------------------------------------------
 app.use(webpackMiddleware(compiler));
