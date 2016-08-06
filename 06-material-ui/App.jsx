@@ -1,33 +1,35 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 
-// import injectTapEventPlugin from 'react-tap-event-plugin';
-// injectTapEventPlugin();
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
 
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-// import MyAwesomeReactComponent from './MyAwesomeReactComponent.jsx';
+import Mui from 'material-ui/styles/MuiThemeProvider';
 
-import AppBarExampleIcon from "./AppBarExampleIcon.jsx";
-// import TextField from "material-ui/TextField";
+import Nav from "./Nav.jsx";
+import Text from "./InputText.jsx";
+import RaisedButton from "material-ui/RaisedButton";
 
-// const App = () => (
-//     <MuiThemeProvider>
-//         <AppBar
-//             title="Title"
-//             iconClassNameRight="muidocs-icon-navigation-expand-more"
-//         />
-//         <TextField
-//             hintText="Hint Text"
-//             floatingLabelText="Floating Label Text"
-//         />
-//     </MuiThemeProvider>
-// );
 
-export default class App extends Component {
+class App extends Component {
+    clickLog() {
+        console.log("log");
+    }
     render() {
         return (
             <div>
-                <AppBarExampleIcon />
+                <Mui>
+                    <Nav />
+                </Mui>
+                <Text />
+                <Text />
+                <Mui>
+                    <RaisedButton
+                        label="Login"
+                        primary={true}
+                        onClick={this.clickLog}
+                    />
+                </Mui>
             </div>
         );
     }
