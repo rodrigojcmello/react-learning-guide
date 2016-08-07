@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "0e2391ae531cd4ce406b"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "457181b97ef3ac0855db"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -11177,7 +11177,7 @@
 /* 89 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -11207,12 +11207,12 @@
 	    }
 
 	    _createClass(OlaHotReloading, [{
-	        key: "render",
+	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
-	                "h1",
+	                'h1',
 	                null,
-	                "Olá Hot Reloading!"
+	                'Olá Hot Reloading!'
 	            );
 	        }
 	    }]);
