@@ -25,14 +25,13 @@ const routes = require('./routes.jsx');
 // -----------------------------------------------------------------------------
 
 app.use(webpackMiddleware(compiler));
-app.use(webpackHotMiddleware(compiler));
 
 function renderPage(appHtml) {
     return `
         <!doctype html public="storage">
         <html>
         <meta charset=utf-8/>
-        <title>My First React Router App</title>
+        <title>React</title>
         <link rel=stylesheet href=/index.css>
         <div id=app>${appHtml}</div>
         <script src="dist/bundle.js"></script>
