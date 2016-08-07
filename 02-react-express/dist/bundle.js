@@ -44,7 +44,7 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	var _react = __webpack_require__(1);
 
@@ -58,7 +58,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	(0, _reactDom.render)(_react2.default.createElement(_OlaExpress2.default, null), document.getElementById("app"));
+	(0, _reactDom.render)(_react2.default.createElement(_OlaExpress2.default, null), document.getElementById('app'));
 
 /***/ },
 /* 1 */

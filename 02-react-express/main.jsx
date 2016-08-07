@@ -1,6 +1,6 @@
-import React from "react";
-import { render } from "react-dom";
+import React from 'react';
+import { render } from 'react-dom';
 
-import OlaExpress from "./components/OlaExpress.jsx";
+import OlaExpress from './components/OlaExpress';
 
-render(<OlaExpress />, document.getElementById("app"));
+render(<OlaExpress />, document.getElementById('app'));
