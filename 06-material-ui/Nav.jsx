@@ -1,11 +1,9 @@
-import React from "react";
-import AppBar from "material-ui/AppBar";
+import React from 'react';
+import AppBar from 'material-ui/AppBar';
 
-const Nav = () => (
+export default Nav = () => (
     <AppBar
-        title="Título"
-        iconClassNameRight="muidocs-icon-navigation-expand-more"
+        title='Título'
+        iconClassNameRight='muidocs-icon-navigation-expand-more'
     />
 );
-
-export default Nav;
