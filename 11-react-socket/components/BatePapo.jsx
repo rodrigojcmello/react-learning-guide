@@ -1,47 +1,48 @@
 import React, { Component } from 'react';
+import update from 'react-addons-update';
 import Mensagem from './Mensagem.jsx';
 
-import Container from './Container.jsx';
-
-import $ from 'jquery';
 require('./BatePapo.css');
-const socket = io.connect("http://localhost:3000");
-
-var data = [];
-var msg = new Object();
+const socket = io.connect('http://localhost:3000');
 
 export default class BatePapo extends Component {
     constructor(props) {
         super(props);
-        this.state = {data};
-        this.socketOn = this.socketOn.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.state = {
+            data : [
+                {usuario: 'Rafael', mensagem: 'Olá'},
+                {usuario: 'Lady', mensagem: 'Tudo bem?'}
+            ]
+        };
+        this.enviarMensagem = this.enviarMensagem.bind(this);
     }
     socketOn(retorno) {
-        if ((retorno.usuario !== msg.usuario && retorno.data !== msg.data) || (msg.usuario === undefined && msg.data === undefined)) {
-            data.push(retorno);
-            this.setState({data});
+        if (retorno === 'conectado') {
+            retorno = [retorno];
+        } else if (retorno[0].usuario !== document.getElementById('usuario').value) {
+            let data = update(this.state, {data: {$push: retorno}});
+            this.setState(data);
         }
     }
     componentDidMount() {
-        document.title = 'React e Socket.io';
-        const BatePapo = this;
-        socket.on('chat message', function(msg) {
-            BatePapo.socketOn(msg);
+        socket.on('chat message', msg => {
+            this.socketOn(msg);
         });
     }
-    handleSubmit(e) {
+    enviarMensagem(e) {
         e.preventDefault();
 
-        msg.usuario = $("#usuario").val();
-        msg.texto = $("#mensagem").val();
-        msg.data = new Date();
+        let msg = [{
+            usuario: document.getElementById('usuario').value,
+            mensagem: document.getElementById('mensagem').value,
+            data: new Date()
+        }];
 
-        data.push(msg);
-        this.setState({data});
+        let data = update(this.state, {data: {$push: msg}});
+        this.setState(data);
 
         socket.emit("chat message", msg);
-        $("#mensagem").val("");
+        document.getElementById('mensagem').value = '';
     }
     render() {
         var mensagemNode = this.state.data.map(function(mensagem, i) {
@@ -50,16 +51,16 @@ export default class BatePapo extends Component {
             );
         });
         return (
-            <Container>
+            <div>
                 <ul id="messages">
                     {mensagemNode}
                 </ul>
-                <form action="" onSubmit={this.handleSubmit}>
+                <form onSubmit={this.enviarMensagem}>
                     <input id="usuario" name="usuario" />
-                    <input id="mensagem" name="mensagem" autocomplete="off" />
+                    <input id="mensagem" name="mensagem" autoComplete="off" />
                     <button>Send</button>
                 </form>
-            </Container>
+            </div>
         );
     }
 }
