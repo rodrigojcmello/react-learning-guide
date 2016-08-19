@@ -10,6 +10,9 @@ Inicialização do package.json:
 
 `npm init --yes`
 
+> Nota: o --yes serve para criar um package.json vázio, sinta-se livre para fazer um "npm init" e preencher as devidas informações do projeto
+> - Rodrigo Mello
+
 Adicione o script "start" no package.json:
 
 ```
