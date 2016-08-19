@@ -1,2 +1,5 @@
-# React Learning Guide
-Step by step guide of the whole environment configuration React with Webpack Express and others.
+# React - Receita de Bolo
+
+-Guia de referência para quem já usa React.
+-Tutorial simples para quem não conhece React.
+-Biblía para quem só conhece jQuery.
