@@ -47,7 +47,8 @@ export default class HelloWorld extends React.Component {
 
 reactDOM.render(<HelloWorld/>, document.getElementById('app'));
 ```
-> Componentes tem o formato .jsx
+
+> Nota: Componentes tem o formato .jsx
 
 ## Babel
 
