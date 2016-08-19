@@ -6,11 +6,15 @@ Exemplificar as configurações mínimas para usar React com Webpack.
 
 ## NPM
 
+*NPM é o gerenciador de pacotes do Node*
+
+Todos os pacotes de produção e desenvolvimento, assim como algumas configurações e scripts ficam no arquivo package.json.
+
 Inicialização do package.json:
 
 `npm init --yes`
 
-> Nota: o --yes serve para criar um package.json vázio, sinta-se livre para fazer um "npm init" e preencher as devidas informações do projeto
+> Nota: "--yes" serve para pular as perguntas de criação do pacote.
 
 Adicione o script "start" no package.json:
 
