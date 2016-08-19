@@ -26,13 +26,13 @@ Adicione o script "start" no package.json:
 
 ## React
 
-*Biblioteca JavaScript para construir interfaces de usuário*
+*Biblioteca javaScript para construção de interfaces*
 
 Instalação:
 
 `npm i --save react react-dom`
 
-Criação de componente:
+Criação de um componente:
 
 ```
 // HelloWorld.jsx
@@ -47,6 +47,7 @@ export default class HelloWorld extends React.Component {
 
 reactDOM.render(<HelloWorld/>, document.getElementById('app'));
 ```
+> Componentes tem o formato .jsx
 
 ## Babel
 
