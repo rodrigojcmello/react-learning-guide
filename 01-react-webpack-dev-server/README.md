@@ -126,7 +126,7 @@ Notas:
 
 > **Output** é a saída única após todo o processamento
 
-> **Resolve** permite declarar arquivos .jsx sem sua extensão, sem isso seria encessário usar './OlaMundo' na 'entry'
+> **Resolve** permite declarar arquivos .jsx sem sua extensão, sem isso seria encessário usar './OlaMundo.jsx' na 'entry'
 
 > **Loaders** são o "carregadores" de funcionalidade do webpack, no caso do loader babel, ele transformará a sintaxe ES6 e JSX em js puro o qual os navegadores tradicionais possam entender.
 
