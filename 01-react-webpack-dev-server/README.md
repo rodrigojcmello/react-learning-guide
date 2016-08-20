@@ -123,8 +123,11 @@ module.exports = {
 Notas:
 
 > **Entry** é o componente raíz do projeto
+
 > **Output** é a saída única após todo o processamento
+
 > **resolve** permite declarar arquivos .jsx sem sua extensão, sem isso seria encessário usar './OlaMundo' na 'entry'
+
 > **loaders** são o "carregadores" de funcionalidade do webpack, no caso do loader babel, ele transformará a sintaxe ES6 e JSX em js puro o qual os navegadores tradicionais possam entender.
 
 ## Webpack Dev Server
