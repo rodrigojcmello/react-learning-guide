@@ -14,7 +14,9 @@ Inicialização do package.json:
 
 `npm init --yes`
 
-> Nota: "--yes" serve para pular as perguntas de criação do pacote.
+Nota:
+
+> **--yes** pula as perguntas de criação do pacote
 
 Adicione o script "start" no package.json:
 
