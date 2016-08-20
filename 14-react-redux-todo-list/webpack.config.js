@@ -1,12 +1,14 @@
 const webpack = require('webpack');
 
 module.exports = {
-    entry: './index',
+    entry: './index.jsx',
     output: { filename: 'bundle.js' },
-    resolve: { extensions: ['', '.js', '.jsx'] },
+    // resolve: {
+    //     extensions: ['', '.js', '.jsx']
+    // },
     module: {
         loaders: [
-            { test: /.jsx$/, loader: 'babel', exclude: /node_modules/ }
+            { test: /.jsx?$/, loader: 'babel', exclude: /node_modules/ }
         ]
     }
 };
