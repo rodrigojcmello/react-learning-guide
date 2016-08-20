@@ -2,7 +2,7 @@ const webpack = require('webpack');
 
 module.exports = {
     entry: './index',
-    output: { filename: 'bundle.js' },
+    output: { filename: 'pacote.js' },
     resolve: { extensions: ['', '.js', '.jsx'] },
     module: {
         loaders: [
