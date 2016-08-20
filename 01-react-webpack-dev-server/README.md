@@ -83,11 +83,11 @@ Configuração no package.json:
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>01 - React Webpack</title>
+    <title>React e Webpack</title>
 </head>
 <body>
     <div id="app"></div>
-    <script src="bundle.js"></script>
+    <script src="pacote.js"></script>
 </body>
 </html>
 ```
