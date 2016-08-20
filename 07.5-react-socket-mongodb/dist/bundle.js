@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "f4efa2065b8b7e79b392"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "e82e2cd418d5718328b2"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -5044,7 +5044,7 @@
 
 
 	// module
-	exports.push([module.id, "* { margin: 0; padding: 0; box-sizing: border-box; }\nbody { font: 13px Helvetica, Arial; }\nform { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }\nform input { border: 0; padding: 10px; margin: 8px; width: 90%; margin-right: .5%; }\nform button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }\n#messages { list-style-type: none; margin: 0; padding: 0; }\n#messages li:nth-child(odd) { background: #f7f7f7; }\n\n\nbody {\n    background-color: #607d8b;\n}\n#messages li {\n    animation: fadein 1s;\n    padding: 12px 16px;\n    line-height: 18px;\n}\n@keyframes fadein {\n    from { opacity: 0; }\n    to { opacity: 1; }\n}\n", ""]);
+	exports.push([module.id, "* { margin: 0; padding: 0; box-sizing: border-box; }\nbody { font: 13px Helvetica, Arial; }\nform { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }\nform input { border: 0; padding: 10px; margin: 8px; width: 90%; margin-right: .5%; }\nform button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }\n#messages { list-style-type: none; margin: 0; padding: 0; }\n#messages li:nth-child(odd) { background: #f7f7f7; }\n\n#messages li {\n    animation: fadein 1s;\n    padding: 12px 16px;\n    line-height: 18px;\n}\n@keyframes fadein {\n    from { opacity: 0; }\n    to { opacity: 1; }\n}\n", ""]);
 
 	// exports
 
@@ -12094,7 +12094,7 @@
 
 	            socket.on('chat message', function (msg) {
 	                _this2.socketOn(msg);
-	            });
+	            });z;
 	        }
 	    }, {
 	        key: 'enviarMensagem',
@@ -12151,7 +12151,7 @@
 /* 95 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -12181,24 +12181,24 @@
 	    }
 
 	    _createClass(Mensagem, [{
-	        key: "render",
+	        key: 'render',
 	        value: function render() {
 	            var lista = void 0;
-	            if (this.props.data == "conectado") {
+	            if (this.props.data === 'conectado') {
 	                lista = _react2.default.createElement(
-	                    "li",
+	                    'li',
 	                    null,
-	                    "novo usuário conectado."
+	                    'novo usuário conectado.'
 	                );
 	            } else {
 	                lista = _react2.default.createElement(
-	                    "li",
+	                    'li',
 	                    null,
 	                    _react2.default.createElement(
-	                        "strong",
+	                        'strong',
 	                        null,
 	                        this.props.data.usuario,
-	                        ": "
+	                        ': '
 	                    ),
 	                    this.props.data.mensagem
 	                );

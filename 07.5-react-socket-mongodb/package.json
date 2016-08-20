@@ -1,0 +1,51 @@
+{
+  "name": "01-react-webpack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "Rodrigo José Carvalho de Mello",
+  "license": "ISC",
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ]
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "rules": {
+      "semi": 2
+    }
+  },
+  "scripts": {
+    "start": "webpack && node index.js"
+  },
+  "dependencies": {
+    "material-ui": "^0.15.4",
+    "mongoose": "^4.5.9",
+    "react": "^15.3.0",
+    "react-addons-update": "^15.3.0",
+    "react-dom": "^15.3.0",
+    "socket.io": "^1.4.8",
+    "webpack": "^1.13.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.13.2",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-react": "^6.11.1",
+    "babel-register": "^6.11.6",
+    "css-loader": "^0.23.1",
+    "express": "^4.14.0",
+    "html-webpack-plugin": "^2.22.0",
+    "style-loader": "^0.13.1",
+    "webpack-dev-middleware": "^1.6.1",
+    "webpack-hot-middleware": "^2.12.2"
+  }
+}
