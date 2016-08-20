@@ -49,10 +49,12 @@ export default class OlaMundo extends Component {
 
 render(<OlaMundo/>, document.getElementById('app'));
 ```
+> **Nota:** Componentes tem o formato .jsx
+
 > **Nota:** "export" define o módulo a ser exportado
+
 > **Nota:** "render" define o alvo do módulo exportado
 
-> Nota: Componentes tem o formato .jsx
 
 ## Babel
 
