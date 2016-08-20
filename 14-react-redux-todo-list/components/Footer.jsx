@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import FilterLink from './FilterLink';
 
 const Footer = () => (
@@ -18,5 +18,4 @@ const Footer = () => (
         </FilterLink>
     </p>
 );
-
 export default Footer;

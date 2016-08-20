@@ -4,7 +4,6 @@ import { addTodo } from '../actions';
 
 let AddTodo = ({ dispatch }) => {
     let input;
-
     return (
         <form onSubmit={ e => {
             e.preventDefault();
@@ -12,7 +11,7 @@ let AddTodo = ({ dispatch }) => {
                 dispatch(addTodo(input.value));
                 input.value = '';
             }
-        }}>
+        } }>
             <input ref={ node => { input = node; } } />
             <button type="submit">
                 Adicionar
@@ -21,6 +20,4 @@ let AddTodo = ({ dispatch }) => {
     );
 };
 
-AddTodo = connect()(AddTodo);
-
-export default AddTodo;
+export default AddTodo = connect()(AddTodo);
