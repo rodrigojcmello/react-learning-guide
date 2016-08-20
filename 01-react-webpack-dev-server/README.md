@@ -56,7 +56,7 @@ Notas:
 
 > **Export** define o módulo a ser exportado
 
-> **Render** define o alvo do módulo exportado
+> **Render** define onde o alvo do módulo exportado do componente será criado
 
 
 ## Babel
