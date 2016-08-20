@@ -35,18 +35,22 @@ Instalação:
 Criação de um componente:
 
 ```
-// HelloWorld.jsx
-import React from 'react';
-import reactDOM from 'react-dom';
+// OlaMundo.jsx
+import React, { Component } from 'react';
+import { render } from 'react-dom';
 
-export default class HelloWorld extends React.Component {
-    render() { return (
-        <h1>Hello World!</h1>
-    ); }
+export default class OlaMundo extends Component {
+    render() {
+        return (
+            <h1>Olá Mundo!</h1>
+        );
+    }
 }
 
-reactDOM.render(<HelloWorld/>, document.getElementById('app'));
+render(<OlaMundo/>, document.getElementById('app'));
 ```
+> **Nota:** "export" define o módulo a ser exportado
+> **Nota:** "render" define o alvo do módulo exportado
 
 > Nota: Componentes tem o formato .jsx
 
