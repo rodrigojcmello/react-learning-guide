@@ -52,7 +52,7 @@ render(<OlaMundo/>, document.getElementById('app'));
 
 Notas:
 
-> **Componentes** extendem a classe Component em o formato .jsx
+> **Componentes** extendem a classe Component e tem o formato .jsx
 
 > **Export** define o módulo a ser exportado
 
