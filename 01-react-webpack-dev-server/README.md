@@ -138,7 +138,7 @@ Instalação global:
 
 `npm i -g webpack-dev-serv`
 
-## localhost:8080
+## Execução
 
 No terminal use:
 
