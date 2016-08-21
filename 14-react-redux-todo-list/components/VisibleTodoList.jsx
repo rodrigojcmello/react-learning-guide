@@ -5,11 +5,11 @@ import TodoList from './TodoList';
 const getVisibleTodos = (todos, filter) => {
     switch (filter) {
         case 'SHOW_ALL':
-        return todos;
+            return todos;
         case 'SHOW_COMPLETED':
-        return todos.filter(t => t.completed);
+            return todos.filter(t => t.completed);
         case 'SHOW_ACTIVE':
-        return todos.filter(t => !t.completed);
+            return todos.filter(t => !t.completed);
     }
 };
 
