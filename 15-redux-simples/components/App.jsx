@@ -1,11 +1,11 @@
 import React from 'react';
 import TarefaAdicionar from './TarefaAdicionar';
-import TarefaListar from './TarefaListar';
+import TarefaLista from './TarefaLista';
 
 const App = () => (
     <div>
         <TarefaAdicionar />
-        <TarefaListar />
+        <TarefaLista />
     </div>
 );
 
