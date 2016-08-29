@@ -7,8 +7,6 @@ const mapStateToProps = (state) => {
     };
 };
 
-const VisibleTodoList = connect(
-    mapStateToProps
-)(TodoList);
+const VisibleTodoList = connect(mapStateToProps)(TodoList);
 
 export default VisibleTodoList;
