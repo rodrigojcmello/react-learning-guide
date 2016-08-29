@@ -1,13 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { tarefaAdicionar } from '../actions';
+import { addTodo } from '../actions';
 
-let AplicacaoTarefa = ({ dispatch }) => {
+let AddTodo = ({ dispatch }) => {
+    let input;
     return (
         <form onSubmit={ e => {
             e.preventDefault();
             if (input.value.trim()) {
-                dispatch(tarefaAdicionar(input.value)); // Dispacha a ação com o novo valor
+                dispatch(addTodo(input.value));
                 input.value = '';
             }
         } }>
@@ -18,3 +19,5 @@ let AplicacaoTarefa = ({ dispatch }) => {
         </form>
     );
 };
+
+export default AddTodo = connect()(AddTodo);

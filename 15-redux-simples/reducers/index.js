@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import tarefas from './tarefas';
+import todos from './todos';
 
-const tarefaApp = combineReducers({
-    tarefas
+const todoApp = combineReducers({
+    todos
 });
 
-export default tarefaApp;
+export default todoApp;

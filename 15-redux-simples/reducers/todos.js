@@ -1,18 +1,19 @@
-const tarefa = (state = {}, action) => {
+const todo = (state = {}, action) => {
     switch (action.type) {
-        case 'TAREFA_ADICIONAR':
+        case 'ADD_TODO':
             return {
                 id: action.id,
-                texto: action.texto
+                text: action.text,
+                completed: false
             };
         default:
             return state;
     }
 };
 
-const tarefas = (state = [], action) => {
+const todos = (state = [], action) => {
     switch (action.type) {
-        case 'TAREFA_ADICIONAR':
+        case 'ADD_TODO':
             return [
                 ...state,
                 todo(undefined, action)
@@ -22,4 +23,4 @@ const tarefas = (state = [], action) => {
     }
 };
 
-export default tarefas;
+export default todos;
