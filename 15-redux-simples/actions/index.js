@@ -1,9 +1,9 @@
 let tarefaId = 0;
 
-export const adicionarTarefa = (text) => {
+export const adicionarTarefa = (texto) => {
     return {
         type: 'ADICIONAR_TAREFA',
         id: tarefaId++,
-        text
+        texto
     };
 };

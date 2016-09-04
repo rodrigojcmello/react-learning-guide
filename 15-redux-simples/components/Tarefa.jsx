@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
 
-const Tarefa = ({ text }) => (
+const Tarefa = ({ texto }) => (
     <li>
-        { text }
+        { texto }
     </li>
 );
 

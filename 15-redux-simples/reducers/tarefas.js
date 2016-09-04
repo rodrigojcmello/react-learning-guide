@@ -3,7 +3,7 @@ const tarefa = (state = {}, action) => {
         case 'ADICIONAR_TAREFA':
             return {
                 id: action.id,
-                text: action.text,
+                texto: action.texto,
                 completed: false
             };
         default:
