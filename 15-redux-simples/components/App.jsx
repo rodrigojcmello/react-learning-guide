@@ -1,11 +1,11 @@
 import React from 'react';
-import AddTodo from './AddTodo';
-import VisibleTodoList from './VisibleTodoList';
+import AdicionarTarefa from './AdicionarTarefa';
+import VisibleTarefaList from './VisibleTarefaList';
 
 const App = () => (
     <div>
-        <AddTodo />
-        <VisibleTodoList />
+        <AdicionarTarefa />
+        <VisibleTarefaList />
     </div>
 );
 

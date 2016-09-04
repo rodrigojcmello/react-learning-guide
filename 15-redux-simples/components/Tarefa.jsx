@@ -1,13 +1,13 @@
 import React, { PropTypes } from 'react';
 
-const Todo = ({ text }) => (
+const Tarefa = ({ text }) => (
     <li>
         { text }
     </li>
 );
 
-Todo.propTypes = {
+Tarefa.propTypes = {
     text: PropTypes.string.isRequired
 };
 
-export default Todo;
+export default Tarefa;

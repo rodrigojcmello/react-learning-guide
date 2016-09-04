@@ -1,9 +1,9 @@
-let nextTodoId = 0;
+let tarefaId = 0;
 
-export const addTodo = (text) => {
+export const adicionarTarefa = (text) => {
     return {
-        type: 'ADD_TODO',
-        id: nextTodoId++,
+        type: 'ADICIONAR_TAREFA',
+        id: tarefaId++,
         text
     };
 };

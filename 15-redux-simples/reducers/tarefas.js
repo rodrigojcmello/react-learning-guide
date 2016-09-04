@@ -1,6 +1,6 @@
-const todo = (state = {}, action) => {
+const tarefa = (state = {}, action) => {
     switch (action.type) {
-        case 'ADD_TODO':
+        case 'ADICIONAR_TAREFA':
             return {
                 id: action.id,
                 text: action.text,
@@ -11,16 +11,16 @@ const todo = (state = {}, action) => {
     }
 };
 
-const todos = (state = [], action) => {
+const tarefas = (state = [], action) => {
     switch (action.type) {
-        case 'ADD_TODO':
+        case 'ADICIONAR_TAREFA':
             return [
                 ...state,
-                todo(undefined, action)
+                tarefa(undefined, action)
             ];
         default:
             return state;
     }
 };
 
-export default todos;
+export default tarefas;
