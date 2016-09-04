@@ -7,3 +7,10 @@ export const adicionarTarefa = (texto) => {
         texto
     };
 };
+
+export const alternaTarefa = (id) => {
+    return {
+        type: 'ALTERNA_TAREFA',
+        id
+    };
+};

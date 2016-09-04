@@ -6,6 +6,13 @@ const tarefa = (state = {}, action) => {
                 texto: action.texto,
                 completed: false
             };
+        case 'ALTERNA_TAREFA':
+            if (state.id !== action.id) {
+                return state;
+            }
+            return Object.assign({}, state, {
+                completed: !state.completed
+            });
         default:
             return state;
     }
@@ -18,6 +25,8 @@ const tarefas = (state = [], action) => {
                 ...state,
                 tarefa(undefined, action)
             ];
+        case 'ALTERNA_TAREFA':
+            return state.map(t => tarefa(t, action));
         default:
             return state;
     }
