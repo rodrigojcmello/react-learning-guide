@@ -1,11 +1,11 @@
 import React from 'react';
 import AdicionarTarefa from './AdicionarTarefa';
-import VisibleTarefaList from './VisibleTarefaList';
+import TarefaListaAtiva from './TarefaListaAtiva';
 
 const App = () => (
     <div>
         <AdicionarTarefa />
-        <VisibleTarefaList />
+        <TarefaListaAtiva />
     </div>
 );
 

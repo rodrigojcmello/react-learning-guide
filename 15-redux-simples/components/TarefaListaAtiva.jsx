@@ -7,6 +7,6 @@ const mapStateToProps = (state) => {
     };
 };
 
-const VisibleTarefaList = connect(mapStateToProps)(TarefaLista);
+const TarefaListaAtiva = connect(mapStateToProps)(TarefaLista);
 
-export default VisibleTarefaList;
+export default TarefaListaAtiva;
