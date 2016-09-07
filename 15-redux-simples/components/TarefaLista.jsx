@@ -13,12 +13,12 @@ const TarefaLista = ({ tarefas, onTodoClick }) => (
     </ul>
 );
 
-TarefaLista.propTypes = {
-    tarefas: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        texto: PropTypes.string.isRequired
-    }).isRequired).isRequired,
-    onTodoClick: PropTypes.func.isRequired
-};
+// TarefaLista.propTypes = {
+//     tarefas: PropTypes.arrayOf(PropTypes.shape({
+//         id: PropTypes.number.isRequired,
+//         texto: PropTypes.string.isRequired
+//     }).isRequired).isRequired,
+//     onTodoClick: PropTypes.func.isRequired
+// };
 
 export default TarefaLista;

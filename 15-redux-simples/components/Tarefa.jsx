@@ -4,7 +4,7 @@ const Tarefa = (prop) => (
     <li
         onClick={prop.onClick}
     >
-        { prop.texto }
+        { prop.texto } { prop.data.getHours() }h{ prop.data.getMinutes() }min{ prop.data.getSeconds() }
     </li>
 );
 

@@ -4,14 +4,16 @@ const tarefa = (state = {}, action) => {
             return {
                 id: action.id,
                 texto: action.texto,
-                completed: false
+                completed: false,
+                data: new Date()
             };
         case 'ALTERNA_TAREFA':
             if (state.id !== action.id) {
                 return state;
             }
             return Object.assign({}, state, {
-                completed: !state.completed
+                completed: !state.completed,
+                data: new Date()
             });
         default:
             return state;
