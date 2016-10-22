@@ -1,6 +1,9 @@
 import React, { PropTypes } from 'react';
 import Tarefa from './Tarefa';
 
+import { connect } from 'react-redux';
+import { alternaTarefa } from '../actions';
+
 const TarefaLista = ({ tarefas, onTodoClick }) => (
     <ul>
         {tarefas.map(tarefa =>
@@ -13,12 +16,23 @@ const TarefaLista = ({ tarefas, onTodoClick }) => (
     </ul>
 );
 
-// TarefaLista.propTypes = {
-//     tarefas: PropTypes.arrayOf(PropTypes.shape({
-//         id: PropTypes.number.isRequired,
-//         texto: PropTypes.string.isRequired
-//     }).isRequired).isRequired,
-//     onTodoClick: PropTypes.func.isRequired
-// };
+const mapStateToProps = (state) => {
+    return {
+        tarefas: state.tarefas
+    };
+};
 
-export default TarefaLista;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onTodoClick: (id) => {
+            dispatch(alternaTarefa(id));
+        }
+    };
+};
+
+const TarefaListaAtiva = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(TarefaLista);
+
+export default TarefaListaAtiva;

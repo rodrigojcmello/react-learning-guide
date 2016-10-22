@@ -1,5 +1,3 @@
-// APAGAR
-
 const tarefa = (state = {}, action) => {
     switch (action.type) {
         case 'ADICIONAR_TAREFA':
