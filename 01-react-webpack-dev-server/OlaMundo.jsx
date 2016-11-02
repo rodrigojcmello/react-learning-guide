@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { render } from 'react-dom';
+import React from 'react';
+import reactDOM from 'react-dom';
 
-export default class OlaMundo extends Component {
+export default class OlaMundo extends React.Component {
     render() {
         return (
             <h1>Olá Mundo!</h1>
@@ -9,4 +9,4 @@ export default class OlaMundo extends Component {
     }
 }
 
-render(<OlaMundo/>, document.getElementById('app'));
+reactDOM.render(<OlaMundo/>, document.getElementById('app'));

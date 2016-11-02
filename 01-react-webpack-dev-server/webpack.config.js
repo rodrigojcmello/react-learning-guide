@@ -1,8 +1,6 @@
-const webpack = require('webpack');
-
 module.exports = {
     entry: './OlaMundo',
-    output: { filename: 'bundle.js' },
+    output: { filename: 'pacote.js' },
     resolve: { extensions: ['', '.js', '.jsx'] },
     module: {
         loaders: [

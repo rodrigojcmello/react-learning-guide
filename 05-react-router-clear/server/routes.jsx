@@ -15,5 +15,5 @@ module.exports = (
     <Route path='/' component={App}>
         <IndexRoute component={Hello}/>
         <Route path='/teste' component={Teste}/>
-    </Route>
+    </ Route>
 );
