@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { render } from 'react-dom';
 import update from 'react-addons-update';
-import Mensagem from './Mensagem.jsx';
+import Mensagem from '../Mensagem.jsx';
 
-require('./BatePapo.css');
+require('./estilo.css');
 const socket = io.connect('http://localhost:3000');
 
 export default class BatePapo extends Component {
@@ -17,10 +18,8 @@ export default class BatePapo extends Component {
         this.mensagemEnviar = this.mensagemEnviar.bind(this);
     }
     socketOn(retorno) {
-        if (retorno === 'conectado') {
-            retorno = [retorno];
-        } else if (retorno[0].usuario !== this.nome.value) {
-            this.setState(update(this.state, {data: {$push: retorno}}));
+        if (retorno[0].usuario !== this.nome.value) {
+            this.setState(update(this.state, { data: { $push: retorno } }));
         }
     }
     componentDidMount() {
@@ -44,9 +43,7 @@ export default class BatePapo extends Component {
     }
     render() {
         let mensagem = this.state.data.map(function(mensagem, i) {
-            return (
-                <Mensagem key={i} data={mensagem} />
-            );
+            return <Mensagem key={i} data={mensagem} />;
         });
         return (
             <div>
@@ -62,3 +59,5 @@ export default class BatePapo extends Component {
         );
     }
 }
+
+render(<BatePapo />, document.getElementById('app'));
