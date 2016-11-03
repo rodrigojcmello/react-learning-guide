@@ -6,7 +6,7 @@ module.exports = {
         'webpack-hot-middleware/client?reload=true',
         __dirname + '/main.jsx'
     ],
-    output: { path: __dirname + '/dist', filename: 'bundle.js' },
+    output: { path: __dirname + '/dist', filename: 'pacote.js' },
     plugins: [
         new html({ template: 'index.html' }),
         new webpack.optimize.OccurenceOrderPlugin(),

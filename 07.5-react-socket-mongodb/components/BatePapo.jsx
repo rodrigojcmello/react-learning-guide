@@ -14,14 +14,13 @@ export default class BatePapo extends Component {
                 { usuario: 'Lady', mensagem: 'Tudo bem?' }
             ]
         };
-        this.enviarMensagem = this.enviarMensagem.bind(this);
+        this.mensagemEnviar = this.mensagemEnviar.bind(this);
     }
     socketOn(retorno) {
         if (retorno === 'conectado') {
             retorno = [retorno];
         } else if (retorno[0].usuario !== this.nome.value) {
-            let data = update(this.state, {data: {$push: retorno}});
-            this.setState(data);
+            this.setState(update(this.state, {data: {$push: retorno}}));
         }
     }
     componentDidMount() {
@@ -29,7 +28,7 @@ export default class BatePapo extends Component {
             this.socketOn(msg);
         });
     }
-    enviarMensagem(e) {
+    mensagemEnviar(e) {
         e.preventDefault();
 
         let msg = [{
@@ -44,7 +43,7 @@ export default class BatePapo extends Component {
         this.mensagem.value = '';
     }
     render() {
-        let mensagemNode = this.state.data.map(function(mensagem, i) {
+        let mensagem = this.state.data.map(function(mensagem, i) {
             return (
                 <Mensagem key={i} data={mensagem} />
             );
@@ -52,9 +51,9 @@ export default class BatePapo extends Component {
         return (
             <div>
                 <ul id="messages">
-                    {mensagemNode}
+                    {mensagem}
                 </ul>
-                <form onSubmit={this.enviarMensagem}>
+                <form onSubmit={this.mensagemEnviar}>
                     <input type="text" ref={(input) => this.nome = input} />
                     <input type="text" ref={(input) => this.mensagem = input} />
                     <button>Enviar</button>

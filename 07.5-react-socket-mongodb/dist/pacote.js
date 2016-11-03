@@ -63,7 +63,7 @@
 /******/ 	}
 
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "1d920b750b7f69b25fd9"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "95278ef7d2e5d5fff4ed"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 
@@ -11935,7 +11935,7 @@
 	        value: function render() {
 	            var _this3 = this;
 
-	            var mensagemNode = this.state.data.map(function (mensagem, i) {
+	            var mensagem = this.state.data.map(function (mensagem, i) {
 	                return _react2.default.createElement(_Mensagem2.default, { key: i, data: mensagem });
 	            });
 	            return _react2.default.createElement(
@@ -11944,7 +11944,7 @@
 	                _react2.default.createElement(
 	                    'ul',
 	                    { id: 'messages' },
-	                    mensagemNode
+	                    mensagem
 	                ),
 	                _react2.default.createElement(
 	                    'form',
