@@ -27,8 +27,6 @@
     "start": "webpack && node index.js"
   },
   "dependencies": {
-    "material-ui": "^0.15.4",
-    "mongoose": "^4.6.5",
     "react": "^15.3.2",
     "react-addons-update": "^15.3.2",
     "react-dom": "^15.3.2",

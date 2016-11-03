@@ -63,7 +63,7 @@
 /******/ 	}
 
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "95278ef7d2e5d5fff4ed"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "255104ff9412b85a4f43"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 
@@ -11892,7 +11892,7 @@
 	        _this.state = {
 	            data: [{ usuario: 'Rafael', mensagem: 'Olá' }, { usuario: 'Lady', mensagem: 'Tudo bem?' }]
 	        };
-	        _this.enviarMensagem = _this.enviarMensagem.bind(_this);
+	        _this.mensagemEnviar = _this.mensagemEnviar.bind(_this);
 	        return _this;
 	    }
 
@@ -11915,8 +11915,8 @@
 	            });
 	        }
 	    }, {
-	        key: 'enviarMensagem',
-	        value: function enviarMensagem(e) {
+	        key: 'mensagemEnviar',
+	        value: function mensagemEnviar(e) {
 	            e.preventDefault();
 
 	            var msg = [{
@@ -11948,7 +11948,7 @@
 	                ),
 	                _react2.default.createElement(
 	                    'form',
-	                    { onSubmit: this.enviarMensagem },
+	                    { onSubmit: this.mensagemEnviar },
 	                    _react2.default.createElement('input', { type: 'text', ref: function ref(input) {
 	                            return _this3.nome = input;
 	                        } }),
