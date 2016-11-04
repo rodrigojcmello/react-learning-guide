@@ -63,7 +63,7 @@
 /******/ 	}
 
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "9e592f8374554d0b581d"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "dff212e2bd3954c0c10b"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 
@@ -5202,7 +5202,7 @@
 
 
 	// module
-	exports.push([module.id, "* { margin: 0; padding: 0; box-sizing: border-box; }\nbody { font: 13px Helvetica, Arial; }\nform {\n    background: #000;\n    border-top: 1px solid #4caf50;\n    bottom: 0;\n    position: fixed;\n    width: 100%;\n}\ninput:nth-child(1), input:nth-child(2), button {\n    border: 0;\n    line-height: 42px;\n    padding-left: 12px;\n    padding-right: 12px;\n}\ninput:nth-child(1) {\n    background-color: #edf7ee;\n    color: #4caf50;\n    float: left;\n    width: 20%;\n}\ninput:nth-child(2) {\n    background-color: white;\n    float: left;\n    width: 60%;\n}\nbutton {\n    background-color: #4CAF50;\n    border: none;\n    color: white;\n    text-transform: uppercase;\n    width: 20%;\n}\n#messages { list-style-type: none; margin: 0; padding: 0; }\n#messages li:nth-child(odd) { background: #f7f7f7; }\n\n#messages li {\n    animation: fadein 1s;\n    line-height: 18px;\n    padding: 12px 16px;\n}\n@keyframes fadein {\n    from { opacity: 0; }\n    to { opacity: 1; }\n}\n", ""]);
+	exports.push([module.id, "* {\n    box-sizing: border-box;\n    font-family: 'Noto Sans', sans-serif;\n    font-size: 14px;\n    margin: 0;\n    padding: 0;\n}\nstrong {\n    color: #4CAF50;\n}\nbody {\n    background-color: #4caf50;\n    background-image: url(\"https://www.transparenttextures.com/patterns/carbon-fibre-v2.png\");\n}\nbody > div {\n    margin: 0 auto;\n    max-width: 1070px;\n    background-color: white;\n    height: 100vh;\n}\nbody ul + div {\n    bottom: 0;\n    max-width: 1070px;\n    padding: 12px;\n    position: fixed;\n    width: calc(100% - 24px);\n}\nform {\n    border-radius: 4px;\n    border: 1px solid #4caf50;\n    width: 100%;\n}\nform:before {\n    content: \" \";\n    display: block;\n}\nform:after {\n    content: \" \";\n    display: block;\n    clear: both;\n}\ninput[type=text] {\n    border: 0;\n    line-height: 42px;\n    padding-left: 12px;\n    padding-right: 12px;\n}\ninput:nth-child(1) {\n    border-bottom-left-radius: 3px;\n    border-top-left-radius: 3px;\n    color: #4caf50;\n    float: left;\n    width: 15%;\n}\ninput:nth-child(2) {\n    color: #4caf50;\n    float: left;\n    width: 15%;\n}\ninput:nth-child(3) {\n    background-color: white;\n    float: left;\n    width: calc(70% - 42px);\n}\nbutton {\n    background-color: white;\n    border-bottom-right-radius: 3px;\n    border-top-right-radius: 3px;\n    border: none;\n    color: #4CAF50;\n    float: left;\n    text-transform: uppercase;\n    width: 42px;\n}\nbutton .material-icons {\n    float: right;\n    line-height: 42px;\n    width: 42px;\n}\n#messages {\n    list-style-type: none;\n    margin: 0;\n    padding: 0;\n}\n#messages li:nth-child(odd) {\n    background: #f7f7f7;\n}\n\n#messages li {\n    animation: fadein 1s;\n    line-height: 18px;\n    padding: 12px 16px;\n}\n@keyframes fadein {\n    from { opacity: 0; }\n    to { opacity: 1; }\n}\n", ""]);
 
 	// exports
 
@@ -11881,7 +11881,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	__webpack_require__(189);
-	var socket = io.connect('http://localhost:3000');
+	var socket = io.connect(document.location.href);
 
 	var BatePapo = function (_Component) {
 	    _inherits(BatePapo, _Component);
@@ -11947,25 +11947,28 @@
 	                    mensagem
 	                ),
 	                _react2.default.createElement(
-	                    'form',
-	                    { onSubmit: this.mensagemEnviar },
+	                    'div',
+	                    null,
 	                    _react2.default.createElement(
-	                        'div',
-	                        { id: 'form-grupo' },
+	                        'form',
+	                        { onSubmit: this.mensagemEnviar },
 	                        _react2.default.createElement('input', { type: 'text', ref: function ref(input) {
 	                                return _this3.nome = input;
 	                            }, placeholder: 'Nome' }),
 	                        _react2.default.createElement('input', { type: 'text', ref: function ref(input) {
+	                                return _this3.sala = input;
+	                            }, placeholder: 'Sala' }),
+	                        _react2.default.createElement('input', { type: 'text', ref: function ref(input) {
 	                                return _this3.mensagem = input;
-	                            }, placeholder: 'Mensagem' })
-	                    ),
-	                    _react2.default.createElement(
-	                        'button',
-	                        null,
+	                            }, placeholder: 'Mensagem' }),
 	                        _react2.default.createElement(
-	                            'i',
-	                            { className: 'material-icons' },
-	                            'build'
+	                            'button',
+	                            null,
+	                            _react2.default.createElement(
+	                                'i',
+	                                { className: 'material-icons' },
+	                                'send'
+	                            )
 	                        )
 	                    )
 	                )

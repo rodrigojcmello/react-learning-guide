@@ -4,7 +4,7 @@ import update from 'immutability-helper';
 import Mensagem from '../Mensagem.jsx';
 
 require('./estilo.css');
-const socket = io.connect('http://localhost:3000');
+const socket = io.connect(document.location.href);
 
 export default class BatePapo extends Component {
     constructor(props) {
