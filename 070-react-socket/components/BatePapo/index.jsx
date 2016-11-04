@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import update from 'react-addons-update';
+import update from 'immutability-helper';
 import Mensagem from '../Mensagem.jsx';
 
 require('./estilo.css');
@@ -50,11 +50,14 @@ export default class BatePapo extends Component {
                 <ul id="messages">
                     {mensagem}
                 </ul>
-                <form onSubmit={this.mensagemEnviar}>
-                    <input type="text" ref={(input) => this.nome = input} />
-                    <input type="text" ref={(input) => this.mensagem = input} />
-                    <button>Enviar</button>
-                </form>
+                <div>
+                    <form onSubmit={this.mensagemEnviar}>
+                            <input type="text" ref={(input) => this.nome = input} placeholder="Nome" />
+                            <input type="text" ref={(input) => this.sala = input} placeholder="Sala" />
+                            <input type="text" ref={(input) => this.mensagem = input} placeholder="Mensagem" />
+                        <button><i className="material-icons">send</i></button>
+                    </form>
+                </div>
             </div>
         );
     }
