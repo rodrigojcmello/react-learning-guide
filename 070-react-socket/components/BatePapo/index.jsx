@@ -11,8 +11,31 @@ export default class BatePapo extends Component {
         super(props);
         this.state = {
             data: [
-                { usuario: 'Rafael', mensagem: 'Olá' },
-                { usuario: 'Lady', mensagem: 'Tudo bem?' }
+                // { usuario: 'Rafael', mensagem: 'Olá' },
+                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
+                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
+                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
+                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
+                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
+                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
+                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
+                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
+                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
+                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
+                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
+                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
+                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
+                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
+                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
+                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
+                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
+                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
+                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
+                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
+                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
+                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
+                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
+                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
             ]
         };
         this.mensagemEnviar = this.mensagemEnviar.bind(this);
@@ -20,7 +43,11 @@ export default class BatePapo extends Component {
     socketOn(retorno) {
         if (retorno[0].usuario !== this.nome.value) {
             this.setState(update(this.state, { data: { $push: retorno } }));
+            console.log(retorno[0].usuario);
+            console.log(this.nome.value);
+            console.log('NÃO ERA PRA ENTRAR!');
         }
+        this.area_mensagem.scrollTop = this.area_mensagem.scrollHeight;
     }
     componentDidMount() {
         socket.on('chat message', msg => {
@@ -36,9 +63,11 @@ export default class BatePapo extends Component {
             data: new Date()
         }];
 
-        this.setState(update(this.state, {data: {$push: msg}}));
+
+        this.setState(update(this.state, { data: { $push: msg } }));
 
         socket.emit("chat message", msg);
+
         this.mensagem.value = '';
     }
     render() {
@@ -46,7 +75,7 @@ export default class BatePapo extends Component {
             return <Mensagem key={i} data={mensagem} />;
         });
         return (
-            <div>
+            <div ref={(div) => this.area_mensagem = div}>
                 <ul id="messages">
                     {mensagem}
                 </ul>

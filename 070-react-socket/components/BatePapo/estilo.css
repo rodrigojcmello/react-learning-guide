@@ -4,6 +4,7 @@
     font-size: 14px;
     margin: 0;
     padding: 0;
+    outline: 0;
 }
 strong {
     color: #4CAF50;
@@ -12,18 +13,21 @@ body {
     background-color: #4caf50;
     background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre-v2.png");
 }
-body > div {
+body > div > div {
+    background-color: white;
+    height: calc(100vh - 111px);
     margin: 0 auto;
     max-width: 1070px;
-    background-color: white;
-    height: 100vh;
+    overflow-y: scroll;
 }
 body ul + div {
+    background: white;
     bottom: 0;
+    box-shadow: 0 -1px 0 rgba(0,0,0,0.1);
     max-width: 1070px;
     padding: 12px;
     position: fixed;
-    width: calc(100% - 24px);
+    width: 100%;
 }
 form {
     border-radius: 4px;
@@ -46,21 +50,24 @@ input[type=text] {
     padding-right: 12px;
 }
 input:nth-child(1) {
-    border-bottom-left-radius: 3px;
+    border-bottom: 1px solid #cae8cb;
     border-top-left-radius: 3px;
     color: #4caf50;
     float: left;
-    width: 15%;
+    width: 50%;
 }
 input:nth-child(2) {
+    border-bottom: 1px solid #cae8cb;
+    border-top-right-radius: 3px;
     color: #4caf50;
     float: left;
-    width: 15%;
+    width: 50%;
 }
 input:nth-child(3) {
     background-color: white;
+    border-bottom-left-radius: 3px;
     float: left;
-    width: calc(70% - 42px);
+    width: calc(100% - 42px);
 }
 button {
     background-color: white;
@@ -77,6 +84,23 @@ button .material-icons {
     line-height: 42px;
     width: 42px;
 }
+@media (min-width: 426px) {
+    body > div > div {
+        height: calc(100vh - 68px);
+    }
+    input:nth-child(1) {
+        border-bottom-left-radius: 3px;
+        border-bottom: none;
+        width: 15%;
+    }
+    input:nth-child(2) {
+        border-bottom: none;
+        width: 15%;
+    }
+    input:nth-child(3) {
+        width: calc(70% - 42px);
+    }
+}
 #messages {
     list-style-type: none;
     margin: 0;
@@ -85,7 +109,6 @@ button .material-icons {
 #messages li:nth-child(odd) {
     background: #f7f7f7;
 }
-
 #messages li {
     animation: fadein 1s;
     line-height: 18px;
