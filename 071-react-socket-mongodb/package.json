@@ -27,8 +27,8 @@
     "start": "webpack && node index.js"
   },
   "dependencies": {
+    "immutability-helper": "^2.0.0",
     "react": "^15.3.2",
-    "react-addons-update": "^15.3.2",
     "react-dom": "^15.3.2",
     "socket.io": "^1.5.1",
     "webpack": "^1.13.3"

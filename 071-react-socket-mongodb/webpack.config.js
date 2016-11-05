@@ -4,7 +4,7 @@ var html = require('html-webpack-plugin');
 module.exports = {
     entry: [
         'webpack-hot-middleware/client?reload=true',
-        __dirname + '/main.jsx'
+        __dirname + '/components/BatePapo/index.jsx'
     ],
     output: { path: __dirname + '/dist', filename: 'pacote.js' },
     plugins: [
@@ -13,9 +13,12 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin()
     ],
+    resolve: {
+        extensions: ['', '.js', '.jsx']
+    },
     module: {
         loaders: [
-            { test: /.jsx$/, loader: 'babel-loader', exclude: /node_modules/ },
+            { test: /.jsx$/, loader: 'babel', exclude: /node_modules/ },
             { test: /.css$/, loader: "style-loader!css-loader" }
         ]
     }
