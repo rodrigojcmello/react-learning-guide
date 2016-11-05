@@ -71,7 +71,7 @@ export default class BatePapo extends Component {
                 <div>
                     <form onSubmit={this.mensagemEnviar}>
                         <input type="text" ref={(input) => this.nome = input} placeholder="Nome" />
-                        <input type="text" placeholder="Sala" value={this.state.chave} onChange={this.chaveMudar} />
+                        <input type="text" ref={(input) => this.sala = input} placeholder="Sala" value={this.state.chave} onChange={this.chaveMudar} />
                         <input type="text" ref={(input) => this.mensagem = input} placeholder="Mensagem" />
                         <button><i className="material-icons">send</i></button>
                     </form>
