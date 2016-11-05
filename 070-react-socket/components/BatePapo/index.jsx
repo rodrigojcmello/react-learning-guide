@@ -9,40 +9,26 @@ const socket = io.connect(document.location.href);
 export default class BatePapo extends Component {
     constructor(props) {
         super(props);
+
+        let chave = '';
+        let possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        for (let i = 0; i < 7; i++) {
+            chave += possible.charAt(Math.floor(Math.random() * possible.length));
+        }
+
         this.state = {
-            data: [
-                // { usuario: 'Rafael', mensagem: 'Olá' },
-                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
-                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
-                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
-                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
-                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
-                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
-                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
-                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
-                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
-                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
-                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
-                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
-                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
-                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
-                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
-                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
-                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
-                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
-                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
-                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
-                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
-                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
-                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
-                // { usuario: 'Lady', mensagem: 'Tudo bem?' },
+            chave: chave,
+            mensagem: [
+                { usuario: 'Rafael', mensagem: 'Olá' },
+                { usuario: 'Lady', mensagem: 'Tudo bem?' }
             ]
         };
         this.mensagemEnviar = this.mensagemEnviar.bind(this);
+        this.chaveMudar = this.chaveMudar.bind(this);
     }
     socketOn(retorno) {
         if (retorno[0].usuario !== this.nome.value) {
-            this.setState(update(this.state, { data: { $push: retorno } }));
+            this.setState(update(this.state, { mensagem: { $push: retorno } }));
             console.log(retorno[0].usuario);
             console.log(this.nome.value);
             console.log('NÃO ERA PRA ENTRAR!');
@@ -50,7 +36,7 @@ export default class BatePapo extends Component {
         this.area_mensagem.scrollTop = this.area_mensagem.scrollHeight;
     }
     componentDidMount() {
-        socket.on('chat message', msg => {
+        socket.on('servidor mensagem', msg => {
             this.socketOn(msg);
         });
     }
@@ -60,19 +46,22 @@ export default class BatePapo extends Component {
         let msg = [{
             usuario: this.nome.value,
             mensagem: this.mensagem.value,
+            sala: this.sala.value,
             data: new Date()
         }];
 
+        this.setState(update(this.state, { mensagem: { $push: msg } }));
 
-        this.setState(update(this.state, { data: { $push: msg } }));
-
-        socket.emit("chat message", msg);
+        socket.emit('cliente mensagem', msg);
 
         this.mensagem.value = '';
     }
+    chaveMudar(event) {
+        this.setState({ chave: event.target.value });
+    }
     render() {
-        let mensagem = this.state.data.map(function(mensagem, i) {
-            return <Mensagem key={i} data={mensagem} />;
+        let mensagem = this.state.mensagem.map(function(dados, i) {
+            return <Mensagem key={i} data={dados} />;
         });
         return (
             <div ref={(div) => this.area_mensagem = div}>
@@ -81,9 +70,9 @@ export default class BatePapo extends Component {
                 </ul>
                 <div>
                     <form onSubmit={this.mensagemEnviar}>
-                            <input type="text" ref={(input) => this.nome = input} placeholder="Nome" />
-                            <input type="text" ref={(input) => this.sala = input} placeholder="Sala" />
-                            <input type="text" ref={(input) => this.mensagem = input} placeholder="Mensagem" />
+                        <input type="text" ref={(input) => this.nome = input} placeholder="Nome" />
+                        <input type="text" placeholder="Sala" value={this.state.chave} onChange={this.chaveMudar} />
+                        <input type="text" ref={(input) => this.mensagem = input} placeholder="Mensagem" />
                         <button><i className="material-icons">send</i></button>
                     </form>
                 </div>

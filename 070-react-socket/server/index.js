@@ -20,8 +20,9 @@ app.get('/', function(req, res) {
     res.sendFile(__dirname + '/dist/index.html');
 });
 io.on('connection', function(socket) {
-    socket.on('chat message', function(msg) {
-        io.emit('chat message', msg);
+    socket.on('cliente mensagem', function(msg) {
+        socket.join(msg[0].sala);
+        io.to(msg[0].sala).emit('servidor mensagem', msg);
     });
 });
 http.listen(3000, function() {

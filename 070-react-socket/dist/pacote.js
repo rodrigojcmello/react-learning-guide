@@ -63,7 +63,7 @@
 /******/ 	}
 
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "dff212e2bd3954c0c10b"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "92c27329bfdf8c6e364d"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 
@@ -5202,7 +5202,7 @@
 
 
 	// module
-	exports.push([module.id, "* {\n    box-sizing: border-box;\n    font-family: 'Noto Sans', sans-serif;\n    font-size: 14px;\n    margin: 0;\n    padding: 0;\n}\nstrong {\n    color: #4CAF50;\n}\nbody {\n    background-color: #4caf50;\n    background-image: url(\"https://www.transparenttextures.com/patterns/carbon-fibre-v2.png\");\n}\nbody > div {\n    margin: 0 auto;\n    max-width: 1070px;\n    background-color: white;\n    height: 100vh;\n}\nbody ul + div {\n    bottom: 0;\n    max-width: 1070px;\n    padding: 12px;\n    position: fixed;\n    width: calc(100% - 24px);\n}\nform {\n    border-radius: 4px;\n    border: 1px solid #4caf50;\n    width: 100%;\n}\nform:before {\n    content: \" \";\n    display: block;\n}\nform:after {\n    content: \" \";\n    display: block;\n    clear: both;\n}\ninput[type=text] {\n    border: 0;\n    line-height: 42px;\n    padding-left: 12px;\n    padding-right: 12px;\n}\ninput:nth-child(1) {\n    border-bottom-left-radius: 3px;\n    border-top-left-radius: 3px;\n    color: #4caf50;\n    float: left;\n    width: 15%;\n}\ninput:nth-child(2) {\n    color: #4caf50;\n    float: left;\n    width: 15%;\n}\ninput:nth-child(3) {\n    background-color: white;\n    float: left;\n    width: calc(70% - 42px);\n}\nbutton {\n    background-color: white;\n    border-bottom-right-radius: 3px;\n    border-top-right-radius: 3px;\n    border: none;\n    color: #4CAF50;\n    float: left;\n    text-transform: uppercase;\n    width: 42px;\n}\nbutton .material-icons {\n    float: right;\n    line-height: 42px;\n    width: 42px;\n}\n#messages {\n    list-style-type: none;\n    margin: 0;\n    padding: 0;\n}\n#messages li:nth-child(odd) {\n    background: #f7f7f7;\n}\n\n#messages li {\n    animation: fadein 1s;\n    line-height: 18px;\n    padding: 12px 16px;\n}\n@keyframes fadein {\n    from { opacity: 0; }\n    to { opacity: 1; }\n}\n", ""]);
+	exports.push([module.id, "* {\n    box-sizing: border-box;\n    font-family: 'Noto Sans', sans-serif;\n    font-size: 14px;\n    margin: 0;\n    padding: 0;\n    outline: 0;\n}\nstrong {\n    color: #4CAF50;\n}\nbody {\n    background-color: #4caf50;\n    background-image: url(\"https://www.transparenttextures.com/patterns/carbon-fibre-v2.png\");\n}\nbody > div > div {\n    background-color: white;\n    height: calc(100vh - 111px);\n    margin: 0 auto;\n    max-width: 1070px;\n    overflow-y: scroll;\n}\nbody ul + div {\n    background: white;\n    bottom: 0;\n    box-shadow: 0 -1px 0 rgba(0,0,0,0.1);\n    max-width: 1070px;\n    padding: 12px;\n    position: fixed;\n    width: 100%;\n}\nform {\n    border-radius: 4px;\n    border: 1px solid #4caf50;\n    width: 100%;\n}\nform:before {\n    content: \" \";\n    display: block;\n}\nform:after {\n    content: \" \";\n    display: block;\n    clear: both;\n}\ninput[type=text] {\n    border: 0;\n    line-height: 42px;\n    padding-left: 12px;\n    padding-right: 12px;\n}\ninput:nth-child(1) {\n    border-bottom: 1px solid #cae8cb;\n    border-top-left-radius: 3px;\n    color: #4caf50;\n    float: left;\n    width: 50%;\n}\ninput:nth-child(2) {\n    border-bottom: 1px solid #cae8cb;\n    border-top-right-radius: 3px;\n    color: #4caf50;\n    float: left;\n    width: 50%;\n}\ninput:nth-child(3) {\n    background-color: white;\n    border-bottom-left-radius: 3px;\n    float: left;\n    width: calc(100% - 42px);\n}\nbutton {\n    background-color: white;\n    border-bottom-right-radius: 3px;\n    border-top-right-radius: 3px;\n    border: none;\n    color: #4CAF50;\n    float: left;\n    text-transform: uppercase;\n    width: 42px;\n}\nbutton .material-icons {\n    float: right;\n    line-height: 42px;\n    width: 42px;\n}\n@media (min-width: 426px) {\n    body > div > div {\n        height: calc(100vh - 68px);\n    }\n    input:nth-child(1) {\n        border-bottom-left-radius: 3px;\n        border-bottom: none;\n        width: 15%;\n    }\n    input:nth-child(2) {\n        border-bottom: none;\n        width: 15%;\n    }\n    input:nth-child(3) {\n        width: calc(70% - 42px);\n    }\n}\n#messages {\n    list-style-type: none;\n    margin: 0;\n    padding: 0;\n}\n#messages li:nth-child(odd) {\n    background: #f7f7f7;\n}\n#messages li {\n    animation: fadein 1s;\n    line-height: 18px;\n    padding: 12px 16px;\n}\n@keyframes fadein {\n    from { opacity: 0; }\n    to { opacity: 1; }\n}\n", ""]);
 
 	// exports
 
@@ -11891,8 +11891,16 @@
 
 	        var _this = _possibleConstructorReturn(this, (BatePapo.__proto__ || Object.getPrototypeOf(BatePapo)).call(this, props));
 
+	        var chave = '';
+	        var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+	        for (var i = 0; i < 7; i++) {
+	            chave += possible.charAt(Math.floor(Math.random() * possible.length));
+	        }
+	        // this.senha = chave;
+
 	        _this.state = {
-	            data: [{ usuario: 'Rafael', mensagem: 'Olá' }, { usuario: 'Lady', mensagem: 'Tudo bem?' }]
+	            chave: chave,
+	            mensagem: [{ usuario: 'Rafael', mensagem: 'Olá' }, { usuario: 'Lady', mensagem: 'Tudo bem?' }]
 	        };
 	        _this.mensagemEnviar = _this.mensagemEnviar.bind(_this);
 	        return _this;
@@ -11902,15 +11910,19 @@
 	        key: 'socketOn',
 	        value: function socketOn(retorno) {
 	            if (retorno[0].usuario !== this.nome.value) {
-	                this.setState((0, _immutabilityHelper2.default)(this.state, { data: { $push: retorno } }));
+	                this.setState((0, _immutabilityHelper2.default)(this.state, { mensagem: { $push: retorno } }));
+	                console.log(retorno[0].usuario);
+	                console.log(this.nome.value);
+	                console.log('NÃO ERA PRA ENTRAR!');
 	            }
+	            this.area_mensagem.scrollTop = this.area_mensagem.scrollHeight;
 	        }
 	    }, {
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
 	            var _this2 = this;
 
-	            socket.on('chat message', function (msg) {
+	            socket.on('servidor mensagem', function (msg) {
 	                _this2.socketOn(msg);
 	            });
 	        }
@@ -11922,12 +11934,14 @@
 	            var msg = [{
 	                usuario: this.nome.value,
 	                mensagem: this.mensagem.value,
+	                sala: this.sala.value,
 	                data: new Date()
 	            }];
 
-	            this.setState((0, _immutabilityHelper2.default)(this.state, { data: { $push: msg } }));
+	            this.setState((0, _immutabilityHelper2.default)(this.state, { mensagem: { $push: msg } }));
 
-	            socket.emit("chat message", msg);
+	            socket.emit('cliente mensagem', msg);
+
 	            this.mensagem.value = '';
 	        }
 	    }, {
@@ -11935,12 +11949,20 @@
 	        value: function render() {
 	            var _this3 = this;
 
-	            var mensagem = this.state.data.map(function (mensagem, i) {
-	                return _react2.default.createElement(_Mensagem2.default, { key: i, data: mensagem });
+	            var mensagem = this.state.mensagem.map(function (dados, i) {
+	                return _react2.default.createElement(_Mensagem2.default, { key: i, data: dados });
 	            });
 	            return _react2.default.createElement(
 	                'div',
-	                null,
+	                { ref: function ref(div) {
+	                        return _this3.area_mensagem = div;
+	                    } },
+	                _react2.default.createElement(
+	                    'div',
+	                    null,
+	                    'SUA SALA ',
+	                    this.state.chave
+	                ),
 	                _react2.default.createElement(
 	                    'ul',
 	                    { id: 'messages' },
@@ -11956,7 +11978,8 @@
 	                                return _this3.nome = input;
 	                            }, placeholder: 'Nome' }),
 	                        _react2.default.createElement('input', { type: 'text', ref: function ref(input) {
-	                                return _this3.sala = input;
+	                                this.sala = input;
+	                                this.sala.value = this.state.chave;
 	                            }, placeholder: 'Sala' }),
 	                        _react2.default.createElement('input', { type: 'text', ref: function ref(input) {
 	                                return _this3.mensagem = input;
