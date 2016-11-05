@@ -63,7 +63,7 @@
 /******/ 	}
 
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "92c27329bfdf8c6e364d"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "7024e299eb78d9087fca"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 
@@ -11889,20 +11889,20 @@
 	    function BatePapo(props) {
 	        _classCallCheck(this, BatePapo);
 
+	        // let chave = '';
+	        // let possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+	        // for (let i = 0; i < 7; i++) {
+	        //     chave += possible.charAt(Math.floor(Math.random() * possible.length));
+	        // }
+
 	        var _this = _possibleConstructorReturn(this, (BatePapo.__proto__ || Object.getPrototypeOf(BatePapo)).call(this, props));
 
-	        var chave = '';
-	        var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-	        for (var i = 0; i < 7; i++) {
-	            chave += possible.charAt(Math.floor(Math.random() * possible.length));
-	        }
-	        // this.senha = chave;
-
 	        _this.state = {
-	            chave: chave,
+	            // chave: chave,
 	            mensagem: [{ usuario: 'Rafael', mensagem: 'Olá' }, { usuario: 'Lady', mensagem: 'Tudo bem?' }]
 	        };
 	        _this.mensagemEnviar = _this.mensagemEnviar.bind(_this);
+	        _this.chaveMudar = _this.chaveMudar.bind(_this);
 	        return _this;
 	    }
 
@@ -11944,6 +11944,10 @@
 
 	            this.mensagem.value = '';
 	        }
+	        // chaveMudar(event) {
+	        //     this.setState({ chave: event.target.value });
+	        // }
+
 	    }, {
 	        key: 'render',
 	        value: function render() {
@@ -11957,12 +11961,6 @@
 	                { ref: function ref(div) {
 	                        return _this3.area_mensagem = div;
 	                    } },
-	                _react2.default.createElement(
-	                    'div',
-	                    null,
-	                    'SUA SALA ',
-	                    this.state.chave
-	                ),
 	                _react2.default.createElement(
 	                    'ul',
 	                    { id: 'messages' },
@@ -11978,8 +11976,7 @@
 	                                return _this3.nome = input;
 	                            }, placeholder: 'Nome' }),
 	                        _react2.default.createElement('input', { type: 'text', ref: function ref(input) {
-	                                this.sala = input;
-	                                this.sala.value = this.state.chave;
+	                                return _this3.sala = input;
 	                            }, placeholder: 'Sala' }),
 	                        _react2.default.createElement('input', { type: 'text', ref: function ref(input) {
 	                                return _this3.mensagem = input;
