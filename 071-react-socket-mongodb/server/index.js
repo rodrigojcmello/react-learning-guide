@@ -12,6 +12,26 @@ const webpackMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const compiler = webpack(webpackConfig);
 
+// MONGODB #####################################################################
+
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/test');
+
+var db = mongoose.connection;
+
+var kittySchema = mongoose.Schema({
+    name: String
+});
+var Kitten = mongoose.model('Kitten', kittySchema);
+var silence = new Kitten({ name: 'Silence' });
+
+db.once('open', function() {
+    io.on('connection', function(socket) {
+        io.emit('servidor mongo', 'conectado ao banco 22222');
+    });
+});
+db.on('error', console.error.bind(console, 'connection error:'));
+
 // #############################################################################
 
 app.use(webpackMiddleware(compiler));

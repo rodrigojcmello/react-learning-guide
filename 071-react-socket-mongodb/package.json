@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "immutability-helper": "^2.0.0",
+    "mongoose": "^4.6.6",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "socket.io": "^1.5.1",

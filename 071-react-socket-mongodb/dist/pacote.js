@@ -63,7 +63,7 @@
 /******/ 	}
 
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "fdd342f881346682b280"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "e11d1d35310b0bb2bbe9"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 
@@ -11907,8 +11907,8 @@
 	    }
 
 	    _createClass(BatePapo, [{
-	        key: 'socketOn',
-	        value: function socketOn(retorno) {
+	        key: 'socketMensagem',
+	        value: function socketMensagem(retorno) {
 	            if (retorno[0].usuario !== this.nome.value) {
 	                this.setState((0, _immutabilityHelper2.default)(this.state, { mensagem: { $push: retorno } }));
 	                console.log(retorno[0].usuario);
@@ -11918,12 +11918,20 @@
 	            this.area_mensagem.scrollTop = this.area_mensagem.scrollHeight;
 	        }
 	    }, {
+	        key: 'socketMongo',
+	        value: function socketMongo(retorno) {
+	            console.log(retorno);
+	        }
+	    }, {
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
 	            var _this2 = this;
 
 	            socket.on('servidor mensagem', function (msg) {
-	                _this2.socketOn(msg);
+	                _this2.socketMensagem(msg);
+	            });
+	            socket.on('servidor mongo', function (msg) {
+	                _this2.socketMongo(msg);
 	            });
 	        }
 	    }, {
@@ -11941,6 +11949,9 @@
 	            this.setState((0, _immutabilityHelper2.default)(this.state, { mensagem: { $push: msg } }));
 
 	            socket.emit('cliente mensagem', msg);
+	            // socket.on('connect_failed', function(){
+	            //     console.log('Connection Failed');
+	            // });
 
 	            this.mensagem.value = '';
 	        }

@@ -26,7 +26,7 @@ export default class BatePapo extends Component {
         this.mensagemEnviar = this.mensagemEnviar.bind(this);
         this.chaveMudar = this.chaveMudar.bind(this);
     }
-    socketOn(retorno) {
+    socketMensagem(retorno) {
         if (retorno[0].usuario !== this.nome.value) {
             this.setState(update(this.state, { mensagem: { $push: retorno } }));
             console.log(retorno[0].usuario);
@@ -35,9 +35,15 @@ export default class BatePapo extends Component {
         }
         this.area_mensagem.scrollTop = this.area_mensagem.scrollHeight;
     }
+    socketMongo(retorno) {
+        console.log(retorno);
+    }
     componentDidMount() {
         socket.on('servidor mensagem', msg => {
-            this.socketOn(msg);
+            this.socketMensagem(msg);
+        });
+        socket.on('servidor mongo', msg => {
+            this.socketMongo(msg);
         });
     }
     mensagemEnviar(e) {
@@ -53,6 +59,9 @@ export default class BatePapo extends Component {
         this.setState(update(this.state, { mensagem: { $push: msg } }));
 
         socket.emit('cliente mensagem', msg);
+        // socket.on('connect_failed', function(){
+        //     console.log('Connection Failed');
+        // });
 
         this.mensagem.value = '';
     }
