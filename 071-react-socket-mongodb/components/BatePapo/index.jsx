@@ -10,67 +10,85 @@ export default class BatePapo extends Component {
     constructor(props) {
         super(props);
 
-        let chave = '';
-        let possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-        for (let i = 0; i < 7; i++) {
-            chave += possible.charAt(Math.floor(Math.random() * possible.length));
+        if (localStorage.getItem('chave')) {
+            this.chave = localStorage.getItem('chave');
+        } else {
+            this.chave = '';
+            this.possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            for (let i = 0; i < 7; i++) {
+                this.chave += this.possible.charAt(Math.floor(Math.random() * this.possible.length));
+            }
+            localStorage.setItem('chave', this.chave);
         }
 
+        this.usuario_local = localStorage.getItem('usuario') ? localStorage.getItem('usuario') : 'teste';
+
         this.state = {
-            chave: chave,
-            mensagem: [
-                { usuario: 'Rafael', mensagem: 'Olá' },
-                { usuario: 'Lady', mensagem: 'Tudo bem?' }
-            ]
+            chave: this.chave,
+            usuario: this.usuario_local,
+            mensagem: []
         };
-        this.mensagemEnviar = this.mensagemEnviar.bind(this);
-        this.chaveMudar = this.chaveMudar.bind(this);
+        this.enviarMensagem = this.enviarMensagem.bind(this);
+        this.atualizarChave = this.atualizarChave.bind(this);
+        this.atualizarUsuario = this.atualizarUsuario.bind(this);
     }
-    socketMensagem(retorno) {
-        if (retorno[0].usuario !== this.nome.value) {
-            this.setState(update(this.state, { mensagem: { $push: retorno } }));
-            console.log(retorno[0].usuario);
-            console.log(this.nome.value);
-            console.log('NÃO ERA PRA ENTRAR!');
+
+    // Socket.io ---------------------------------------------------------------
+
+    enviarSala() {
+        socket.emit('sala', this.sala.value);
+    }
+    receberMensagens(ret) {
+        this.setState({ mensagem: ret });
+    }
+    receberMensagem(ret) {
+        if (ret.usuario !== this.nome.value) {
+            this.setState(update(this.state, { mensagem: { $push: [ret] } }));
         }
         this.area_mensagem.scrollTop = this.area_mensagem.scrollHeight;
     }
-    socketMongo(retorno) {
-        console.log(retorno);
+
+    // onChange ----------------------------------------------------------------
+
+    atualizarChave(event) {
+        this.enviarSala();
+        localStorage.setItem('chave', event.target.value);
+        this.setState({ chave: event.target.value });
     }
-    componentDidMount() {
-        socket.on('servidor mensagem', msg => {
-            this.socketMensagem(msg);
-        });
-        socket.on('servidor mongo', msg => {
-            this.socketMongo(msg);
-        });
+    atualizarUsuario(event) {
+        localStorage.setItem('usuario', event.target.value);
+        this.setState({ usuario: event.target.value });
     }
-    mensagemEnviar(e) {
+
+    // onSubmit ----------------------------------------------------------------
+
+    enviarMensagem(e) {
         e.preventDefault();
-
-        let msg = [{
+        let msg = {
             usuario: this.nome.value,
-            mensagem: this.mensagem.value,
-            sala: this.sala.value,
-            data: new Date()
-        }];
-
-        this.setState(update(this.state, { mensagem: { $push: msg } }));
-
-        socket.emit('cliente mensagem', msg);
-        // socket.on('connect_failed', function(){
-        //     console.log('Connection Failed');
-        // });
-
+            texto: this.mensagem.value,
+            sala: this.sala.value
+        };
+        this.setState(update(this.state, { mensagem: { $push: [msg] } }));
+        socket.emit('mensagem', msg);
         this.mensagem.value = '';
     }
-    chaveMudar(event) {
-        this.setState({ chave: event.target.value });
+
+    // -------------------------------------------------------------------------
+
+    componentDidMount() {
+        this.enviarSala();
+        socket.on('mensagens', msg => {
+            this.receberMensagens(msg);
+        });
+        socket.on('mensagem', msg => {
+            this.receberMensagem(msg);
+        });
     }
     render() {
         let mensagem = this.state.mensagem.map(function(dados, i) {
-            return <Mensagem key={i} data={dados} />;
+            let id = typeof dados._id !== 'undefined' ? dados._id : i;
+            return <Mensagem key={id} data={dados} />;
         });
         return (
             <div ref={(div) => this.area_mensagem = div}>
@@ -78,9 +96,9 @@ export default class BatePapo extends Component {
                     {mensagem}
                 </ul>
                 <div>
-                    <form onSubmit={this.mensagemEnviar}>
-                        <input type="text" ref={(input) => this.nome = input} placeholder="Nome" />
-                        <input type="text" ref={(input) => this.sala = input} placeholder="Sala" value={this.state.chave} onChange={this.chaveMudar} />
+                    <form onSubmit={this.enviarMensagem}>
+                        <input type="text" ref={(input) => this.nome = input} placeholder="Nome" value={this.state.usuario} onChange={this.atualizarUsuario} />
+                        <input type="text" ref={(input) => this.sala = input} placeholder="Sala" value={this.state.chave} onChange={this.atualizarChave} />
                         <input type="text" ref={(input) => this.mensagem = input} placeholder="Mensagem" />
                         <button><i className="material-icons">send</i></button>
                     </form>

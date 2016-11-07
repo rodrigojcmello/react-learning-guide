@@ -63,7 +63,7 @@
 /******/ 	}
 
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "e11d1d35310b0bb2bbe9"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "7bca3dba737467e5cdfb"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 
@@ -11897,68 +11897,86 @@
 	            chave += possible.charAt(Math.floor(Math.random() * possible.length));
 	        }
 
+	        var usuario_local = localStorage.getItem('usuario') !== 'undefined' ? localStorage.getItem('usuario') : 'teste';
+	        // let usuario = 'rodrigo';
+
 	        _this.state = {
 	            chave: chave,
-	            mensagem: [{ usuario: 'Rafael', mensagem: 'Olá' }, { usuario: 'Lady', mensagem: 'Tudo bem?' }]
+	            usuario: usuario_local,
+	            mensagem: []
 	        };
-	        _this.mensagemEnviar = _this.mensagemEnviar.bind(_this);
-	        _this.chaveMudar = _this.chaveMudar.bind(_this);
+	        _this.enviarMensagem = _this.enviarMensagem.bind(_this);
+	        _this.atualizarChave = _this.atualizarChave.bind(_this);
+	        _this.atualizarUsuario = _this.atualizarUsuario.bind(_this);
 	        return _this;
 	    }
 
+	    // Socket.io ---------------------------------------------------------------
+
 	    _createClass(BatePapo, [{
-	        key: 'socketMensagem',
-	        value: function socketMensagem(retorno) {
-	            if (retorno[0].usuario !== this.nome.value) {
-	                this.setState((0, _immutabilityHelper2.default)(this.state, { mensagem: { $push: retorno } }));
-	                console.log(retorno[0].usuario);
-	                console.log(this.nome.value);
-	                console.log('NÃO ERA PRA ENTRAR!');
+	        key: 'enviarSala',
+	        value: function enviarSala() {
+	            socket.emit('sala', this.sala.value);
+	        }
+	    }, {
+	        key: 'receberMensagens',
+	        value: function receberMensagens(ret) {
+	            this.setState({ mensagem: ret });
+	        }
+	    }, {
+	        key: 'receberMensagem',
+	        value: function receberMensagem(ret) {
+	            if (ret.usuario !== this.nome.value) {
+	                this.setState((0, _immutabilityHelper2.default)(this.state, { mensagem: { $push: [ret] } }));
 	            }
 	            this.area_mensagem.scrollTop = this.area_mensagem.scrollHeight;
 	        }
+
+	        // onChange ----------------------------------------------------------------
+
 	    }, {
-	        key: 'socketMongo',
-	        value: function socketMongo(retorno) {
-	            console.log(retorno);
+	        key: 'atualizarChave',
+	        value: function atualizarChave(event) {
+	            this.enviarSala();
+	            this.setState({ chave: event.target.value });
 	        }
+	    }, {
+	        key: 'atualizarUsuario',
+	        value: function atualizarUsuario(event) {
+	            localStorage.setItem('usuario', event.target.value);
+	            this.setState({ usuario: event.target.value });
+	        }
+
+	        // onSubmit ----------------------------------------------------------------
+
+	    }, {
+	        key: 'enviarMensagem',
+	        value: function enviarMensagem(e) {
+	            e.preventDefault();
+	            var msg = {
+	                usuario: this.nome.value,
+	                texto: this.mensagem.value,
+	                sala: this.sala.value
+	            };
+	            this.setState((0, _immutabilityHelper2.default)(this.state, { mensagem: { $push: [msg] } }));
+	            socket.emit('mensagem', msg);
+	            this.mensagem.value = '';
+	        }
+
+	        // -------------------------------------------------------------------------
+
 	    }, {
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
 	            var _this2 = this;
 
-	            socket.on('servidor mensagem', function (msg) {
-	                _this2.socketMensagem(msg);
+	            this.enviarSala();
+	            socket.on('mensagens', function (msg) {
+	                _this2.receberMensagens(msg);
 	            });
-	            socket.on('servidor mongo', function (msg) {
-	                _this2.socketMongo(msg);
+	            socket.on('mensagem', function (msg) {
+	                _this2.receberMensagem(msg);
 	            });
-	        }
-	    }, {
-	        key: 'mensagemEnviar',
-	        value: function mensagemEnviar(e) {
-	            e.preventDefault();
-
-	            var msg = [{
-	                usuario: this.nome.value,
-	                mensagem: this.mensagem.value,
-	                sala: this.sala.value,
-	                data: new Date()
-	            }];
-
-	            this.setState((0, _immutabilityHelper2.default)(this.state, { mensagem: { $push: msg } }));
-
-	            socket.emit('cliente mensagem', msg);
-	            // socket.on('connect_failed', function(){
-	            //     console.log('Connection Failed');
-	            // });
-
-	            this.mensagem.value = '';
-	        }
-	    }, {
-	        key: 'chaveMudar',
-	        value: function chaveMudar(event) {
-	            this.setState({ chave: event.target.value });
 	        }
 	    }, {
 	        key: 'render',
@@ -11966,7 +11984,8 @@
 	            var _this3 = this;
 
 	            var mensagem = this.state.mensagem.map(function (dados, i) {
-	                return _react2.default.createElement(_Mensagem2.default, { key: i, data: dados });
+	                var id = typeof dados._id !== 'undefined' ? dados._id : i;
+	                return _react2.default.createElement(_Mensagem2.default, { key: id, data: dados });
 	            });
 	            return _react2.default.createElement(
 	                'div',
@@ -11983,13 +12002,13 @@
 	                    null,
 	                    _react2.default.createElement(
 	                        'form',
-	                        { onSubmit: this.mensagemEnviar },
+	                        { onSubmit: this.enviarMensagem },
 	                        _react2.default.createElement('input', { type: 'text', ref: function ref(input) {
 	                                return _this3.nome = input;
-	                            }, placeholder: 'Nome' }),
+	                            }, placeholder: 'Nome', value: this.state.usuario, onChange: this.atualizarUsuario }),
 	                        _react2.default.createElement('input', { type: 'text', ref: function ref(input) {
 	                                return _this3.sala = input;
-	                            }, placeholder: 'Sala', value: this.state.chave, onChange: this.chaveMudar }),
+	                            }, placeholder: 'Sala', value: this.state.chave, onChange: this.atualizarChave }),
 	                        _react2.default.createElement('input', { type: 'text', ref: function ref(input) {
 	                                return _this3.mensagem = input;
 	                            }, placeholder: 'Mensagem' }),
@@ -12061,7 +12080,7 @@
 	                    this.props.data.usuario,
 	                    ': '
 	                ),
-	                this.props.data.mensagem
+	                this.props.data.texto
 	            );
 	        }
 	    }]);

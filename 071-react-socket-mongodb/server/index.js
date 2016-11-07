@@ -16,21 +16,37 @@ const compiler = webpack(webpackConfig);
 
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/test');
-
 var db = mongoose.connection;
 
-var kittySchema = mongoose.Schema({
-    name: String
+var mensagemSchema = mongoose.Schema({
+    usuario: String,
+    texto: String,
+    sala: String
 });
-var Kitten = mongoose.model('Kitten', kittySchema);
-var silence = new Kitten({ name: 'Silence' });
 
-db.once('open', function() {
-    io.on('connection', function(socket) {
-        io.emit('servidor mongo', 'conectado ao banco 22222');
+var Mensagem = mongoose.model('Mensagem', mensagemSchema);
+
+// Recebe a sala, encontra e envia as mensagens --------------------------------
+
+io.on('connection', function(socket) {
+    socket.on('sala', function(sala) {
+        Mensagem.find({ sala: sala }, function (erro, mensagens) {
+            io.emit('mensagens', mensagens);
+        });
     });
 });
-db.on('error', console.error.bind(console, 'connection error:'));
+
+// Recebe, armazena e dispara as mensagens -------------------------------------
+
+io.on('connection', function(socket) {
+    socket.on('mensagem', function(msg) {
+        var mensagem = new Mensagem(msg);
+        mensagem.save();
+
+        socket.join(msg.sala);
+        io.to(msg.sala).emit('mensagem', msg);
+    });
+});
 
 // #############################################################################
 
