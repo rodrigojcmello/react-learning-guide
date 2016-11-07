@@ -21,7 +21,7 @@ export default class BatePapo extends Component {
             localStorage.setItem('chave', this.chave);
         }
 
-        this.usuario_local = localStorage.getItem('usuario') ? localStorage.getItem('usuario') : 'teste';
+        this.usuario_local = localStorage.getItem('usuario') ? localStorage.getItem('usuario') : '';
 
         this.state = {
             chave: this.chave,
