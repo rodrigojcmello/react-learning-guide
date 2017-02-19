@@ -1,8 +1,7 @@
-const path = require('path');
 const html = require("html-webpack-plugin");
 
 module.exports = {
-    entry: path.resolve(__dirname, "main"),
+    entry: __dirname + "/main",
     output: {
         filename: "pacote.js"
     },
