@@ -1,6 +1,10 @@
-import React from 'react';
-import { render } from 'react-dom';
+import React from "react";
+import { render } from "react-dom";
 
-import OlaExpress from './components/OlaExpress';
+import OlaExpress from "./componente/OlaExpress";
 
-render(<OlaExpress />, document.getElementById('app'));
+var raiz = document.createElement("div");
+raiz.id = "raiz";
+document.body.appendChild(raiz);
+
+render(<OlaExpress />, document.getElementById("raiz"));

@@ -1,16 +1,18 @@
-const webpack = require('webpack');
-const html = require('html-webpack-plugin');
+const path = require('path');
+const html = require("html-webpack-plugin");
 
 module.exports = {
-    entry: './main',
-    output: { path: __dirname + '/dist', filename: 'bundle.js' },
-    plugins: [new html({ template: 'index.html' })],
+    entry: path.resolve(__dirname, "main"),
+    output: {
+        filename: "pacote.js"
+    },
     resolve: {
-        extensions: ['', '.js', '.jsx']
+        extensions: [".js", ".jsx"]
     },
     module: {
         loaders: [
-            { test: /.jsx$/, loader: 'babel', exclude: /node_modules/ }
+            { test: /\.jsx?$/, use: "babel-loader" }
         ]
-    }
+    },
+    plugins: [new html()]
 };
