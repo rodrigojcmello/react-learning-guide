@@ -1,5 +1,3 @@
-const html = require("html-webpack-plugin");
-
 module.exports = {
     entry: __dirname + "/main",
     output: {

@@ -23,9 +23,6 @@
             "semi": 2
         }
     },
-    "scripts": {
-        "start": "node servidor/index.js"
-    },
     "dependencies": {
         "babel-core": "^6.23.1",
         "babel-loader": "^6.3.2",
