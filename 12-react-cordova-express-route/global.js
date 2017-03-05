@@ -1,6 +1,6 @@
 global.transComp  = true;
 global.transName  = "swipe-left";
-global.transEnter = 800;
-global.transLeave = 800;
+global.transEnter = 400;
+global.transLeave = 400;
 
 module.exports = global;

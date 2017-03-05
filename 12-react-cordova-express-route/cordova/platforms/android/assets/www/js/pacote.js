@@ -14442,9 +14442,7 @@ var _reactAddonsCssTransitionGroup = __webpack_require__(152);
 
 var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
 
-var _global = __webpack_require__(127);
-
-var _global2 = _interopRequireDefault(_global);
+__webpack_require__(127);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -14690,8 +14688,8 @@ module.exports = __webpack_require__(55);
 
 global.transComp = true;
 global.transName = "swipe-left";
-global.transEnter = 800;
-global.transLeave = 800;
+global.transEnter = 400;
+global.transLeave = 400;
 
 module.exports = global;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(37)))
@@ -29687,7 +29685,7 @@ exports = module.exports = __webpack_require__(128)();
 
 
 // module
-exports.push([module.i, "body {\n    background-color: #c3cfd5;\n    margin: 0;\n}\n\n.tela {\n    background-color: #fff;\n    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);\n    height: 100vh;\n    left: 0;\n    position: absolute;\n    right: 0;\n    top: 0;\n    width: 100vw;\n    z-index: 0;\n}\n\n/* Swipe Left --------------------------------------------------------------- */\n\n.swipe-left-enter {\n    left: 100%;\n    transition: left 0.8s;\n    z-index: 1;\n}\n.swipe-left-enter-active {\n    left: 0;\n}\n\n.swipe-left-leave {\n    opacity: 1;\n    transition: opacity 0.8s;\n}\n.swipe-left-leave-active {\n    opacity: 0;\n}\n\n/* Swipe Right--------------------------------------------------------------- */\n\n.tela.swipe-right-enter {\n    left: auto;\n    right: 100%;\n}\n\n.swipe-right-enter {\n    right: 100%;\n    transition: right 0.8s;\n    z-index: 1;\n}\n\n.swipe-right-enter.swipe-right-enter-active {\n    right: 0;\n}\n\n.swipe-right-leave {\n    opacity: 1;\n    transition: opacity 0.8s;\n}\n.swipe-right-leave-active {\n    opacity: 0;\n}\n", ""]);
+exports.push([module.i, "body {\n    background-color: #c3cfd5;\n    margin: 0;\n}\n\n.tela {\n    background-color: #fff;\n    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);\n    height: 100vh;\n    left: 0;\n    position: absolute;\n    right: 0;\n    top: 0;\n    width: 100vw;\n    z-index: 0;\n}\n\n/* Swipe Left --------------------------------------------------------------- */\n\n.swipe-left-enter {\n    left: 100%;\n    transition: left 0.4s ease;\n    z-index: 1;\n}\n.swipe-left-enter-active {\n    left: 0;\n}\n\n.swipe-left-leave {\n    opacity: 1;\n    transition: opacity 0.4s;\n}\n.swipe-left-leave-active {\n    opacity: 0;\n}\n\n/* Swipe Right--------------------------------------------------------------- */\n\n.tela.swipe-right-enter {\n    left: auto;\n    right: 100%;\n}\n\n.swipe-right-enter {\n    right: 100%;\n    transition: right 0.4s ease;\n    z-index: 1;\n}\n\n.swipe-right-enter.swipe-right-enter-active {\n    right: 0;\n}\n\n.swipe-right-leave {\n    opacity: 1;\n    transition: opacity 0.4s;\n}\n.swipe-right-leave-active {\n    opacity: 0;\n}\n", ""]);
 
 // exports
 

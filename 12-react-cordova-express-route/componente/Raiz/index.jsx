@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
-import elist from "../../global.js";
+import "../../global.js";
 
 require("./style.css");
 
