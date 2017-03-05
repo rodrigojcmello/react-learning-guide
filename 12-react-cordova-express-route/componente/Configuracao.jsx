@@ -6,7 +6,7 @@ export default class extends Component {
         return (
             <div className="tela">
                 <h1>Configuração</h1>
-                <li><Link to="/">Voltar</Link></li>
+                <li><Link to="/tag">tag</Link></li>
             </div>
         );
     }

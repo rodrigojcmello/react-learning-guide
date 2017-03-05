@@ -1,6 +1,9 @@
-global.transComp  = true;
-global.transName  = "swipe-left";
-global.transEnter = 400;
-global.transLeave = 400;
+global.elist = {};
 
-module.exports = global;
+global.elist.transEnter = 400;
+global.elist.transLeave = 400;
+
+global.elist.usuario    = {};
+// global.elist.usuario.id = 10;
+
+module.exports = global.elist;

@@ -1,29 +1,37 @@
 import React from "react";
-import { Link } from "react-router";
+import { Link, browserHistory } from "react-router";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
 import "../../global.js";
-
-require("./style.css");
+import "./style.css";
 
 export default class extends React.Component {
     constructor(props) {
         super(props);
     }
-    render() {
-        var children = this.props.children;
-        if (global.transComp) {
-            children =
-                <ReactCSSTransitionGroup
-                    component="div"
-                    transitionName={ global.transName }
-                    transitionEnterTimeout={ global.transEnter }
-                    transitionLeaveTimeout={ global.transLeave }
-                    >
-                        { React.cloneElement(this.props.children, { key: this.props.location.pathname }) }
-                </ReactCSSTransitionGroup>;
+    componentWillMount() {
+        global.elist.transName = "swipe-right";
+        if (global.elist.usuario.id) {
+            browserHistory.push("#/tag");
         } else {
-            global.transComp = true;
+            browserHistory.push("#/login");
+        }
+    }
+    render() {
+        var children = "";
+        if (this.props.children) {
+            children = this.props.children;
+            if (global.elist.transName) {
+                children =
+                    <ReactCSSTransitionGroup
+                        component="div"
+                        transitionName={ global.elist.transName }
+                        transitionEnterTimeout={ global.elist.transEnter }
+                        transitionLeaveTimeout={ global.elist.transLeave }
+                        >
+                            { React.cloneElement(this.props.children, { key: this.props.location.pathname }) }
+                    </ReactCSSTransitionGroup>;
+            }
         }
         return (
             <div>

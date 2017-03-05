@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router";
 
-// import "../elist.class.js";
-
 export default class extends Component {
-    componentDidMount() {
-        global.transName = "swipe-right";
+    componentWillMount() {
+        global.elist.transName = "swipe-right";
     }
     render() {
         return (
