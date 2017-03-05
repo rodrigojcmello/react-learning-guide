@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router";
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import ReactCSSTransitionGroup from "react-addons-css-transition-group";
+
+import elist from "../../global.js";
 
 require("./style.css");
 
@@ -9,20 +11,23 @@ export default class extends React.Component {
         super(props);
     }
     render() {
-        return (
-            <div>
-                <h1>Raiz!</h1>
-                <li><Link to="/Acesso">Acesso</Link></li>
-                <li><Link to="/Tarefa">Tarefa</Link></li>
-                { this.props.location.pathname }
+        var children = this.props.children;
+        if (global.transComp) {
+            children =
                 <ReactCSSTransitionGroup
                     component="div"
-                    transitionName="example"
-                    transitionEnterTimeout={500}
-                    transitionLeaveTimeout={500}
+                    transitionName={ global.transName }
+                    transitionEnterTimeout={ global.transEnter }
+                    transitionLeaveTimeout={ global.transLeave }
                     >
                         { React.cloneElement(this.props.children, { key: this.props.location.pathname }) }
-                </ReactCSSTransitionGroup>
+                </ReactCSSTransitionGroup>;
+        } else {
+            global.transComp = true;
+        }
+        return (
+            <div>
+                { children }
             </div>
         );
     }

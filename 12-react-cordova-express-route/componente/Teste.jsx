@@ -1,11 +1,16 @@
 import React, { Component } from "react";
+import { browserHistory } from "react-router";
 
-export default class Teste extends Component {
+// import elist from "../elist.class.js";
+
+export default class extends Component {
+    componentWillMount() {
+        global.transComp = false;
+        browserHistory.push("#/login");
+    }
     render() {
         return (
-            <div className="tela">
-                <h1>2 Teste!</h1>
-            </div>
+            <div></div>
         );
     }
 }

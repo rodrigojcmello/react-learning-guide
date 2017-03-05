@@ -16,7 +16,7 @@ var config = {
 // Web -------------------------------------------------------------------------
 
 if (process.env.PLATAFORMA == "web") {
-    config.plugins = [ new html ];
+    config.plugins = [ new html({ template: "index.html" }) ];
 }
 
 // Mobile ----------------------------------------------------------------------
